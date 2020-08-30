@@ -45,4 +45,27 @@ console.log(
   })
 );
 
+hobbies.push('Programming');
+console.log(hobbies);
 console.log(hobbies.map((hobby) => "Hobby: " + hobby));
+
+const hobbiesCopy = hobbies.slice();
+const hobbiesCopy2 = [...hobbies];
+
+console.log(hobbiesCopy);
+console.log(hobbiesCopy2);
+
+// Spread Operator
+
+const copiedPerson = {...person};
+console.log(copiedPerson);
+
+// Rest operator
+
+const toArray = (...args) => {
+    return args;
+};
+
+console.log(toArray(1,2,3, 4, 5));
+
+
