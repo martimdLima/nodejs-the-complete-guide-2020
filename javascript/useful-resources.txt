@@ -1,0 +1,6 @@
+- https://academind.com/learn/javascript/reference-vs-primitive-values/
+- https://academind.com/learn/javascript/
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
