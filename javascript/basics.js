@@ -45,7 +45,7 @@ console.log(
   })
 );
 
-hobbies.push('Programming');
+hobbies.push("Programming");
 console.log(hobbies);
 console.log(hobbies.map((hobby) => "Hobby: " + hobby));
 
@@ -57,15 +57,28 @@ console.log(hobbiesCopy2);
 
 // Spread Operator
 
-const copiedPerson = {...person};
+const copiedPerson = { ...person };
 console.log(copiedPerson);
 
 // Rest operator
 
 const toArray = (...args) => {
-    return args;
+  return args;
 };
 
-console.log(toArray(1,2,3, 4, 5));
+console.log(toArray(1, 2, 3, 4, 5));
 
+// Destructuring
 
+const printName = ({ name, age, greet }) => {
+  console.log(name + "\n" + age + "\n" + greet);
+};
+
+const { name, age } = person;
+
+console.log(name + " " + age);
+
+printName(person);
+
+const [hobby1, hobby2] = hobbies;
+console.log(hobby1, hobby2);
