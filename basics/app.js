@@ -17,7 +17,20 @@ const server = http.createServer((request, response) => {
 
   // Sending Responses
   if (url === "/message" && method === "POST") {
-    fs.writeFileSync("message.txt", "DUMMY");
+    const body = [];
+
+    // parsing request bodies
+    request.on("data", (chunk) => {
+      console.log(chunk);
+      body.push(chunk);
+    });
+    request.on("end", () => {
+      const parsedBody = Buffer.concat(body).toString();
+      const message = parsedBody.split("=")[1];
+      fs.writeFileSync("message.txt", message);
+    });
+
+    // routing requests
     response.statusCode = 302;
     response.setHeader("Location", "/");
     return response.end();
@@ -30,11 +43,11 @@ const server = http.createServer((request, response) => {
   response.write("</html>");
   response.end();
   /*
-    process.exit();
+      process.exit();
 
-    Process.exit basically hard exites the event loop and therefore the program shuts down because there is no more work to do,
-    nodejs sees that there is no more work to do and it basically closes the program and gives control back to the terminal. 
-    */
+      Process.exit basically hard exites the event loop and therefore the program shuts down because there is no more work to do,
+      nodejs sees that there is no more work to do and it basically closes the program and gives control back to the terminal. 
+      */
 });
 
 server.listen(3000);
