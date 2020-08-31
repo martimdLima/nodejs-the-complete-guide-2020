@@ -1,7 +1,9 @@
 const http = require("http");
+const fs = require("fs");
 
 const server = http.createServer((request, response) => {
   const url = request.url;
+  const method = request.method;
 
   if (url === "/") {
     response.write("<html>");
@@ -14,13 +16,19 @@ const server = http.createServer((request, response) => {
   }
 
   // Sending Responses
+  if (url === "/message" && method === "POST") {
+    fs.writeFileSync("message.txt", "DUMMY");
+    response.statusCode = 302;
+    response.setHeader("Location", "/");
+    return response.end();
+  }
+
   response.setHeader("Content-Type", "text/html");
   response.write("<html>");
   response.write("<head><title>Test Page</title><head>");
   response.write("<body><h1>NodeJs Test Content</h1></body>");
   response.write("</html>");
   response.end();
-
   /*
     process.exit();
 
