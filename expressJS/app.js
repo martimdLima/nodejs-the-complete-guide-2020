@@ -8,11 +8,11 @@ const shopRoutes = require("./routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(adminRoutes);
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, nex) => {
-    res.status(404).send('<h1>page Not Found</h1>');
+  res.status(404).send("<h1>page Not Found</h1>");
 });
 
 app.listen(3000);
