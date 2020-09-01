@@ -2,3 +2,11 @@ npm init
 npm install nodemon --save-dev
 npm install --save express
 npm install --save ejs pug express-handlebars
+
+
+Third party modules used so far:
+# nodemon
+# express
+# pug
+# ejs
+# handlebars
