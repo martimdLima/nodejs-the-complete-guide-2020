@@ -1,7 +1,3 @@
 */node_modules/
 dirloc.txt
-assignments/expressJS/node_modules/
-
-assignments/navigation/node_modules/
-
-assignments/template-engines/node_modules/
+assignments/*/node_modules/
