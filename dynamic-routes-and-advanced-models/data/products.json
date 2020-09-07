@@ -1,11 +1,13 @@
 [
   {
+    "id": "1",
     "title": "1984",
     "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JWtzpmm3CQqjYTwR4ad4MwHaLH%26pid%3DApi&f=1",
     "description": "20",
     "price": "In a totalitarian future society, a man, whose daily work is re-writing history, tries to rebel by falling in love."
   },
   {
+    "id": "2",
     "title": "Animal Farm",
     "imageUrl": "https://i.pinimg.com/736x/64/ad/9e/64ad9e0db7d9bd665e6632d27ed69358.jpg",
     "description": "19.99",
