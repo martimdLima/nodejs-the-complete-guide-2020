@@ -8,7 +8,9 @@
     "start": "nodemon app.js"
   },
   "nodemonConfig": {
-    "ignore": ["*.json"]
+    "ignore": [
+      "*.json"
+    ]
   },
   "author": "Martim Lima",
   "license": "ISC",
