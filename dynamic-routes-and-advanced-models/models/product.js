@@ -20,8 +20,8 @@ module.exports = class Product {
   constructor(title, imageUrl, description, price) {
     this.title = title;
     this.imageUrl = imageUrl;
-    this.description = description;
     this.price = price;
+    this.description = description;
   }
 
   save() {
@@ -38,7 +38,7 @@ module.exports = class Product {
 
   static fetchById(id, callback) {
     getProductsFromFile((products) => {
-      const product = products.find(prod => prod.id === id);
+      const product = products.find((prod) => prod.id === id);
       callback(product);
     });
   }
