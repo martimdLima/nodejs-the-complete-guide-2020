@@ -3,7 +3,7 @@ const Cart = require("../models/cart");
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll()
-    .query("SELECT * FROM node_complete.products;")
+    //.query("SELECT * FROM node_complete.products;")
     .then((queryResult) => {
       const products = queryResult.filter(function (value, index, arr) {
         return value !== "meta";
@@ -21,23 +21,30 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-  Product.fetchById(prodId, (product) => {
-    res.render("shop/product-detail", {
-      product: product,
-      pageTitle: product.title,
-      path: "/products",
+  Product.fetchById(prodId)
+    .then((queryData) => {
+      const qProd = queryData.filter(function (value, index, arr) {
+        return value !== "meta";
+      })[0];
+      console.log(qProd);
+      res.render("shop/product-detail", {
+        product: qProd,
+        pageTitle: qProd.title,
+        path: "/products",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 };
 
 exports.getIndex = (req, res, next) => {
   Product.fetchAll()
-    .query("SELECT * FROM node_complete.products;")
+    //.query("SELECT * FROM node_complete.products;")
     .then((queryResult) => {
       const products = queryResult.filter(function (value, index, arr) {
         return value !== "meta";
       });
-      //console.log(products);
       res.render("shop/index", {
         prods: products,
         pageTitle: "Shop",

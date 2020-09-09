@@ -15,10 +15,7 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
 
   const product = new Product(null, title, imageUrl, price, description);
-  product.save().query(
-    "INSERT INTO node_complete.products (title, price, description, imageUrl) VALUE (?, ?, ?, ?)",
-    [title, price, description, imageUrl]
-  )
+  product.save(title, price, description, imageUrl)
   .then((queryLog) => {
     console.log(queryLog);
     res.redirect("/");

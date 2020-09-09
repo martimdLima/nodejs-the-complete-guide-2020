@@ -88,26 +88,20 @@ module.exports = class Product {
   INSERT INTO node_complete.products (id, title, price, description, imageUrl) VALUES(?, ?, ?, ?, ?), []
   */
 
-  save() {
-    return connection;
-      /* .query(
-        "INSERT INTO node_complete.products (title, price, description, imageUrl) VALUES(?, ?, ?, ?)",
-        [this.title, this.price, this.description, this.imageUrl]
-      )
-      .then((res) => {
-        console.log(res);
-        //log : { affectedRows: 1, insertId: 1, warningStatus: 0 }
-      })
-      .catch((err) => {
-        console.log(err);
-      }); */
+  save(prodTitle, prodPrice, prodDescription, prodImgUrl) {
+    return connection.query(
+      "INSERT INTO node_complete.products (title, price, description, imageUrl) VALUE (?, ?, ?, ?)",
+      [prodTitle, prodPrice, prodDescription, prodImgUrl]
+    );
   }
 
   static fetchAll() {
-    return connection;
+    return connection.query("SELECT * FROM node_complete.products;");
   }
 
-  static fetchById(id, callback) {}
+  static fetchById(id) {
+    return connection.query("SELECT * FROM node_complete.products WHERE products.id =?", [id])
+  }
 
   static deleteById(id) {}
 };
