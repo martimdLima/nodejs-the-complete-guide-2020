@@ -2,12 +2,8 @@ const Product = require("../models/product");
 const Cart = require("../models/cart");
 
 exports.getProducts = (req, res, next) => {
-  Product.fetchAll()
-    //.query("SELECT * FROM node_complete.products;")
-    .then((queryResult) => {
-      const products = queryResult.filter(function (value, index, arr) {
-        return value !== "meta";
-      });
+  Product.findAll()
+    .then((products) => {
       res.render("shop/product-list", {
         prods: products,
         pageTitle: "All Products",
@@ -39,12 +35,8 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-  Product.fetchAll()
-    //.query("SELECT * FROM node_complete.products;")
-    .then((queryResult) => {
-      const products = queryResult.filter(function (value, index, arr) {
-        return value !== "meta";
-      });
+  Product.findAll()
+    .then((products) => {
       res.render("shop/index", {
         prods: products,
         pageTitle: "Shop",

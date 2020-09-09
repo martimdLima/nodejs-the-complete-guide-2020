@@ -14,16 +14,18 @@ exports.postAddProduct = (req, res, next) => {
   const description = req.body.description;
   const price = req.body.price;
 
-  const product = new Product(null, title, imageUrl, price, description);
-  product.save(title, price, description, imageUrl)
-  .then((queryLog) => {
-    console.log(queryLog);
-    res.redirect("/");
-    //log : { affectedRows: 1, insertId: 1, warningStatus: 0 }
+  Product.create({
+    title: title,
+    price: price,
+    imageUrl: imageUrl,
+    description: description,
   })
-  .catch((err) => {
-    console.log(err);
-  });
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 exports.getEditProduct = (req, res, next) => {
