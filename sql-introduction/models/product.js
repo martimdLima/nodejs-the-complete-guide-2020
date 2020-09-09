@@ -84,7 +84,24 @@ module.exports = class Product {
     this.description = description;
   }
 
-  save() {}
+  /*
+  INSERT INTO node_complete.products (id, title, price, description, imageUrl) VALUES(?, ?, ?, ?, ?), []
+  */
+
+  save() {
+    return connection;
+      /* .query(
+        "INSERT INTO node_complete.products (title, price, description, imageUrl) VALUES(?, ?, ?, ?)",
+        [this.title, this.price, this.description, this.imageUrl]
+      )
+      .then((res) => {
+        console.log(res);
+        //log : { affectedRows: 1, insertId: 1, warningStatus: 0 }
+      })
+      .catch((err) => {
+        console.log(err);
+      }); */
+  }
 
   static fetchAll() {
     return connection;
