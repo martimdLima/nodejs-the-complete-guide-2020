@@ -1,28 +1,28 @@
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
-
-// mongodb+srv://mdlima:Fp53UihfDIOC0o7a@cluster0.xmtoh.mongodb.net/cluster0?retryWrites=true&w=majority
+const uri =
+  "mongodb+srv://mdlima:Fp53UihfDIOC0o7a@cluster0.xmtoh.mongodb.net/shop?retryWrites=true&w=majority";
+let _db;
 
 const mongoConnect = (callback) => {
-  MongoClient.connect(
-    "mongodb+srv://mdlima:Fp53UihfDIOC0o7a@cluster0.xmtoh.mongodb.net/cluster0?retryWrites=true&w=majority"
-  )
-    .then(client => {
-      console.log("Connected");
+  MongoClient.connect(uri)
+    .then((client) => {
+      console.log("Connected!!!");
+      _db = client.db;
       callback(client);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
+      throw err;
     });
-}
+};
 
-module.exports = mongoConnect
+const getDb = () => {
+  if (_db) {
+    return _db;
+  }
+  throw "No database found!";
+};
 
-/* const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://mdlima:<password>@cluster0.xmtoh.mongodb.net/<dbname>?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-}); */
+exports.mongoConnect = mongoConnect;
+exports.getDb = getDb;
