@@ -1,0 +1,13 @@
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` double NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imageUrl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `products_id_IDX` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Products Table';
+
+INSERT INTO node_complete.products
+(id, title, price, description, imageUrl)
+VALUES(1, '1984', 19.84, '1984 dystopian book', 'https://hardakh.files.wordpress.com/2013/02/poster_1984_lrg.jpg?w=416');
