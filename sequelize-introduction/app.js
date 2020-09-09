@@ -52,8 +52,6 @@ sequelize
   .sync()
   .then((result) => {
     return User.findByPk(1);
-    //console.log(result);
-    //app.listen(3000);
   })
   .then((user) => {
     if (!user) {
@@ -67,7 +65,9 @@ sequelize
     }
   })
   .then((user) => {
-    //console.log(user);
+    return user.createCart();
+  })
+  .then(cart => {
     app.listen(3000);
   })
   .catch((err) => {

@@ -8,6 +8,6 @@ CREATE TABLE `products` (
   UNIQUE KEY `products_id_IDX` (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Products Table';
 
-INSERT INTO node_complete.products
-(id, title, price, description, imageUrl)
-VALUES(1, '1984', 19.84, '1984 dystopian book', 'https://hardakh.files.wordpress.com/2013/02/poster_1984_lrg.jpg?w=416');
+
+(1, '1984', 19.84, 'a dystopian book', 'https://hardakh.files.wordpress.com/2013/02/poster_1984_lrg.jpg?w=416');
+(1, 'Animal Farm', 20, 'another dystopian book', 'https://4.bp.blogspot.com/-yM2ImaSaQ_E/T4aV5z2m5sI/AAAAAAAAHhk/-i3EWhwQ-RQ/s1600/animalfarm.jpg')
