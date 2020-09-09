@@ -1,0 +1,5 @@
+https://www.w3schools.com/sql/
+
+https://mariadb.com/kb/en/connector-nodejs-promise-api/#connectionquerysql-values-promise
+
+https://www.slideshare.net/MariaDB/building-better-nodejs-applications-on-mariadb
