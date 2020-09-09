@@ -70,9 +70,26 @@ sequelize
     }
   })
   .then((user) => {
-    return user.createCart();
+    ///////////////////////////////////
+    // This code was added to prevent the creation of a new cart each time the application starts
+    user
+      .getCart()
+      .then((cart) => {
+        if (cart) {
+          return cart;
+        } else {
+          return user.createCart();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    ///////////////////////////////////
+
+    //return user.createCart();
   })
   .then((cart) => {
+    console.log("IN CART THEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     app.listen(3000);
   })
   .catch((err) => {
