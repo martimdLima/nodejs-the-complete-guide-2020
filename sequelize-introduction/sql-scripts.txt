@@ -1,0 +1,14 @@
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` double NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imageUrl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `products_id_IDX` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Products Table';
+
+
+(1, '1984', 19.84, 'a dystopian book', 'https://hardakh.files.wordpress.com/2013/02/poster_1984_lrg.jpg?w=416');
+(1, 'Animal Farm', 20, 'another dystopian book', 'https://4.bp.blogspot.com/-yM2ImaSaQ_E/T4aV5z2m5sI/AAAAAAAAHhk/-i3EWhwQ-RQ/s1600/animalfarm.jpg')
+(1, 'LOTR The Fellowship Of The Ring', 23.34, 'An Epic fantasy book',https://kbimages1-a.akamaihd.net/bc413bdd-66cc-4309-99dd-b3ab7b3cda14/1200/1200/False/the-fellowship-of-the-ring-the-lord-of-the-rings-book-1-1.jpg)

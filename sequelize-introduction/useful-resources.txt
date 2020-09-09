@@ -1,0 +1,5 @@
+https://www.w3schools.com/sql/
+
+https://sequelize.org/master/index.html
+https://sequelize.org/v5/manual/
+https://sequelize.org/master/manual/dialect-specific-things.html
