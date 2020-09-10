@@ -8,7 +8,7 @@ const mongoConnect = require("./util/database").mongoConnect;
 
 const app = express();
 
-//const adminRoutes = require("./routes/admin");
+const adminRoutes = require("./routes/admin");
 
 /* 
 const shopRoutes = require("./routes/shop"); */
@@ -28,9 +28,10 @@ app.use((req, res, next) => {
     .catch((err) => {
       console.log(err);
     }); */
+  next();
 });
 
-//app.use("/admin", adminRoutes);
+app.use("/admin", adminRoutes);
 
 /* 
 app.use(shopRoutes); */
