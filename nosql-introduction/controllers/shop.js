@@ -68,7 +68,16 @@ exports.getCart = (req, res, next) => {
 
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
-  let fetchedCart;
+  
+  Product.fetchById(prodId)
+    .then(product => {
+      return req.user.addToCart(product);
+    })
+    .then(result => {
+      console.log(result);
+    });
+
+  /*  let fetchedCart;
   let newQuantity = 1;
 
   req.user
@@ -102,7 +111,7 @@ exports.postCart = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+    }); */
 };
 
 exports.postOrder = (req, res, next) => {
