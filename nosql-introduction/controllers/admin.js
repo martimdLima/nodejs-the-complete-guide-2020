@@ -39,7 +39,7 @@ exports.postAddProduct = (req, res, next) => {
     });
 };
 
-/* exports.getEditProduct = (req, res, next) => {
+exports.getEditProduct = (req, res, next) => {
   const editMode = req.query.edit;
   if (!editMode) {
     return res.redirect("/");
@@ -47,10 +47,8 @@ exports.postAddProduct = (req, res, next) => {
 
   const prodId = req.params.productId;
 
-  req.user
-    .getProducts({ where: { id: prodId } })
-    .then((products) => {
-      const product = products[0];
+  Product.fetchById(prodId)
+    .then((product) => {
 
       if (!product) {
         return res.redirect("/");
@@ -75,7 +73,7 @@ exports.postEditProduct = (req, res, next) => {
   const updatedImageUrl = req.body.imageUrl;
   const updatedDescription = req.body.description;
 
-  Product.findByPk(prodId)
+  Product.fetchById(prodId)
     .then((product) => {
       product.title = updatedTitle;
       product.price = updatedPrice;
@@ -91,6 +89,8 @@ exports.postEditProduct = (req, res, next) => {
       console.log(err);
     });
 };
+
+/* 
 
 
 
