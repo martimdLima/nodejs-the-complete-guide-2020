@@ -41,7 +41,6 @@ app.use(errorController.get404);
      "mongodb+srv://mdlima:Fp53UihfDIOC0o7a@cluster0.xmtoh.mongodb.net/test?retryWrites=true&w=majority"
    )
    .then((result) => {
-    console.log(result); 
     console.log("CONNECTED!!!!");
      app.listen(3000);
    })
