@@ -20,8 +20,8 @@ class Product {
     if (this._id) {
       // Update the product
       dbOp = db
-      .collection('products')
-      .updateOne({ _id: this._id }, { $set: this });
+        .collection("products")
+        .updateOne({ _id: this._id }, { $set: this });
     } else {
       // create the product
       dbOp = db.collection("products").insertOne(this);
@@ -66,15 +66,16 @@ class Product {
 
   static deleteById(prodId) {
     const db = getDb();
-    return db.collection("products")
-    .deleteOne({_id: new mongodb.ObjectId(prodId) })
-    .then(result => {
-      console.log("Product Deleted!");
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }  
+    return db
+      .collection("products")
+      .deleteOne({ _id: new mongodb.ObjectId(prodId) })
+      .then((result) => {
+        console.log("Product Deleted!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }
 
 module.exports = Product;

@@ -27,7 +27,14 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const description = req.body.description;
   const price = req.body.price;
-  const product = new Product(title, price, description, imageUrl, null, req.user._id);
+  const product = new Product(
+    title,
+    price,
+    description,
+    imageUrl,
+    null,
+    req.user._id
+  );
 
   product
     .save()
@@ -49,7 +56,6 @@ exports.getEditProduct = (req, res, next) => {
 
   Product.fetchById(prodId)
     .then((product) => {
-
       if (!product) {
         return res.redirect("/");
       }
