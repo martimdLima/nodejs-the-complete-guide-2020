@@ -18,18 +18,24 @@ class User {
 
   getCart() {
     const db = getDb();
-    const productIds = this.cart.items.map(index => {
+    const productIds = this.cart.items.map((index) => {
       return index.productId;
     });
 
-    return db.collection("products").find({_id: {$in: productIds}}).toArray().then(products => {
-      return products.map(prod => {
-        return {...prod, quantity: this.cart.items.find(item => {
-          return item.productId.toString() === prod._id.toString();
-        }).quantity
-      };
+    return db
+      .collection("products")
+      .find({ _id: { $in: productIds } })
+      .toArray()
+      .then((products) => {
+        return products.map((prod) => {
+          return {
+            ...prod,
+            quantity: this.cart.items.find((item) => {
+              return item.productId.toString() === prod._id.toString();
+            }).quantity,
+          };
+        });
       });
-    });
   }
 
   addToCart(product) {
@@ -59,6 +65,20 @@ class User {
       .updateOne(
         { _id: new ObjectId(this._id) },
         { $set: { cart: updatedCart } }
+      );
+  }
+
+  deleteItemFromCart(productId) {
+    const updatedCartItems = this.cart.items.filter((item) => {
+      return item.productId.toString() !== productId.toString();
+    });
+
+    const db = getDb();
+    return db
+      .collection("users")
+      .updateOne(
+        { _id: new ObjectId(this._id) },
+        { $set: { cart: { items: updatedCartItems } } }
       );
   }
 
