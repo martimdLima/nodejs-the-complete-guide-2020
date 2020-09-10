@@ -50,11 +50,11 @@ class Product {
       });
   }
 
-  static fetchById(proId) {
+  static fetchById(prodId) {
     const db = getDb();
     return db
       .collection("products")
-      .find({ _id: new mongodb.ObjectId(proId) })
+      .find({ _id: new mongodb.ObjectId(prodId) })
       .next()
       .then((product) => {
         console.log(product);
@@ -64,6 +64,18 @@ class Product {
         console.log(err);
       });
   }
+
+  static deleteById(prodId) {
+    const db = getDb();
+    return db.collection("products")
+    .deleteOne({_id: new mongodb.ObjectId(prodId) })
+    .then(result => {
+      console.log("Product Deleted!");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }  
 }
 
 module.exports = Product;

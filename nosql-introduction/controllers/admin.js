@@ -1,5 +1,3 @@
-const mongodb = require("mongodb");
-const ObjectId = mongodb.ObjectId;
 const Product = require("../models/product");
 
 exports.getProducts = (req, res, next) => {
@@ -80,7 +78,7 @@ exports.postEditProduct = (req, res, next) => {
     updatedPrice,
     updatedDescription,
     updatedImageUrl,
-    new ObjectId(prodId)
+    prodId
   );
 
   product
@@ -94,18 +92,11 @@ exports.postEditProduct = (req, res, next) => {
     });
 };
 
-/* 
-
-
-
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
 
-  Product.findByPk(prodId)
-    .then((product) => {
-      return product.destroy();
-    })
-    .then((result) => {
+  Product.deleteById(prodId)
+    .then(() => {
       console.log("Destroyed product");
       res.redirect("/admin/products");
     })
@@ -113,4 +104,3 @@ exports.postDeleteProduct = (req, res, next) => {
       console.log(err);
     });
 };
- */
