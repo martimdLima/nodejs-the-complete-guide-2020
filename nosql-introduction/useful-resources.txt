@@ -1,1 +1,4 @@
 https://academind.com/learn/mongodb/
+https://docs.mongodb.com/manual/core/security-encryption-at-rest/https://docs.mongodb.com/manual/
+
+https://academind.com/learn/web-dev/sql-vs-nosql/
