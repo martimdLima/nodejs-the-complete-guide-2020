@@ -12,3 +12,4 @@ CREATE TABLE `products` (
 (1, '1984', 19.84, 'a dystopian book', 'https://hardakh.files.wordpress.com/2013/02/poster_1984_lrg.jpg?w=416');
 (1, 'Animal Farm', 20, 'another dystopian book', 'https://4.bp.blogspot.com/-yM2ImaSaQ_E/T4aV5z2m5sI/AAAAAAAAHhk/-i3EWhwQ-RQ/s1600/animalfarm.jpg')
 (1, 'LOTR The Fellowship Of The Ring', 23.34, 'An Epic fantasy book',https://kbimages1-a.akamaihd.net/bc413bdd-66cc-4309-99dd-b3ab7b3cda14/1200/1200/False/the-fellowship-of-the-ring-the-lord-of-the-rings-book-1-1.jpg)
+(1, 'War of the World', 23.34, 'Science-Fiction Book', https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcovers.feedbooks.net%2Fbook%2F35.jpg%3Fsize%3Dlarge%26t%3D1451371207&f=1&nofb=1)
