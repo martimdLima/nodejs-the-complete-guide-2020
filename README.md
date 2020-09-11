@@ -12,6 +12,20 @@ Complete guide about Node JS & Deno.js, build REST APIs with Node.js, GraphQL AP
 
 ### 4 - [Express.Js](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/expressJS)
 
-### 5 - [Dynamic Content And Template Engines]()
+### 5 - [Dynamic Content And Template Engines](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/dynamic-content-and-templating-engines)
 
-### 6 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
+### 6 - [The Model View Controller (MVC)](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/model-view-controler)
+
+### 7 - [Enhancing The App](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/enhancing-the-app)
+
+### 8 - [Dynamic Routes & Advanced Models](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/dynamic-routes-and-advanced-models)
+
+### 9 - [SQL Introduction](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sql-introduction)
+
+### 10 - [Understanding Sequelize](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sequelize-introduction)
+
+### 11 - [Working with NoSQL & Using MongoDB](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/nosql-introduction)
+
+### 12 - [Working with Mongoose](https://https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/mongoose)
+
+### 13 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)

@@ -1,9 +1,13 @@
-npm init
-npm install nodemon --save-dev
-npm install --save express
-npm install --save ejs pug express-handlebars
+
+npm install --save pug
+npm install --save express-handlebars
 npm install --save sequelize
 npm install --save mariadb
+npm install -- save mongodb
+
+npm init
+npm install nodemon --save-dev
+npm install --save express ejs mongodb mongoose
 
 
 Third party modules used so far:
