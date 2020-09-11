@@ -1,8 +1,12 @@
 # Nodejs The Complete Guide 2020
 
-Complete guide about Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authentication, use MongoDB, SQL & much more.
+<br>
 
-# Modules:
+> Complete guide about Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authentication, use MongoDB, SQL & much more.
+
+<br>
+
+## Modules:
 
 ### 1 - [Introduction](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/introduction)
 
@@ -29,3 +33,10 @@ Complete guide about Node JS & Deno.js, build REST APIs with Node.js, GraphQL AP
 ### 12 - [Working with Mongoose](https://https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/mongoose)
 
 ### 13 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
+  
+<br>
+<br>
+
+## Technologies Used: 
+**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose**
+
