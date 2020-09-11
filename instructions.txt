@@ -1,13 +1,19 @@
-
+// templating Engines
 npm install --save pug
 npm install --save express-handlebars
-npm install --save sequelize
+
+// MariaDB Node.Js Connector
 npm install --save mariadb
+
+// Promise base ORM
+npm install --save sequelize
+
+// MongoDB Connecetor
 npm install -- save mongodb
 
 npm init
 npm install nodemon --save-dev
-npm install --save express ejs mongodb mongoose
+npm install --save express ejs mongodb mongoose express-session
 
 
 Third party modules used so far:
@@ -15,4 +21,7 @@ Third party modules used so far:
 # express
 # pug
 # ejs
-# handlebars
+# express-handlebars
+# mariadb
+# mongodb
+# mongoose
