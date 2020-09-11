@@ -9,9 +9,7 @@ exports.getLogin = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  //req.isLoggedIn = true;
-  // Cookie properties - Expires | Max-Age | Domain | Secure
-  res.setHeader("Set-Cookie", "loggedIn=true; HttpOnly");
+  req.session.isLoggedIn = true;
 
   res.redirect("/");
 };
