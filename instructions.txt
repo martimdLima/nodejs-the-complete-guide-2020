@@ -13,7 +13,7 @@ npm install -- save mongodb
 
 npm init
 npm install nodemon --save-dev
-npm install --save express ejs mongodb mongoose express-session
+npm install --save express ejs mongodb mongoose express-session connect-mongodb-session
 
 
 Third party modules used so far:
@@ -25,3 +25,5 @@ Third party modules used so far:
 # mariadb
 # mongodb
 # mongoose
+# express-session
+# connect-mongodb-session
