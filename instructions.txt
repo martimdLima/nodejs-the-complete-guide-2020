@@ -9,11 +9,11 @@ npm install --save mariadb
 npm install --save sequelize
 
 // MongoDB Connecetor
-npm install -- save mongodb
+npm install --save mongodb
 
 npm init
 npm install nodemon --save-dev
-npm install --save express ejs mongodb mongoose express-session connect-mongodb-session
+npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs
 
 
 Third party modules used so far:
@@ -27,3 +27,4 @@ Third party modules used so far:
 # mongoose
 # express-session
 # connect-mongodb-session
+# bcryptjs
