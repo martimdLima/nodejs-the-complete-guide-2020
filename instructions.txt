@@ -21,7 +21,7 @@ npm install --save express ejs mongodb mongoose express-session connect-mongodb-
 ## connect-mongodb-session
 # Password Encryption
 ## bcryptjs
-# CRSF Protection
+# CSRF Token Middleware
 ## csurf
-# Providing User Feedback
+# Session Messages Storage
 connect-flash
