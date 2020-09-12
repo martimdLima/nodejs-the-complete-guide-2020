@@ -1,7 +1,7 @@
 
 npm init
 npm install nodemon --save-dev
-npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer
+npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer express-validator
 
 [Third party services used so far]:
 # https://cloud.mongodb.com/
@@ -9,7 +9,9 @@ npm install --save express ejs mongodb mongoose express-session connect-mongodb-
 
 
 [Third party modules used so far]:
+#server restart utility
 # nodemon
+# web framework
 # express
 # templating Engines
 ## pug
@@ -32,3 +34,5 @@ npm install --save express ejs mongodb mongoose express-session connect-mongodb-
 connect-flash
 # Sending emails
 ## nodemailer
+# Validation
+## express-validator
