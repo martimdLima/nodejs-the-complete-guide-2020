@@ -1,0 +1,6 @@
+# MailTrap
+https://mailtrap.io/
+https://blog.mailtrap.io/sending-emails-with-nodemailer/
+
+# nodemailer
+https://nodemailer.com/about/
