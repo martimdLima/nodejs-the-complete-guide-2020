@@ -11,17 +11,33 @@ exports.getLogin = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  User.findById("5f5ad2ed27949d5bf02c878b")
-    .then((user) => {
-      req.session.isLoggedIn = true;
-      req.session.user = user;
+  const email = req.body.email;
+  const password = req.body.password;
 
-      // normally there's no need to explicitly save the session,
-      // but in cases there is the need to garanty that the user is logged in it can be used
-      req.session.save((err) => {
-        console.log(err);
-        res.redirect("/");
-      });
+  User.findOne({ email: email })
+    .then((user) => {
+      if (!user) {
+        return res.redirect("/login");
+      }
+
+      bcrypt
+        .compare(password, user.password)
+        .then((doMatch) => {
+          if (doMatch) {
+            req.session.isLoggedIn = true;
+            req.session.user = user;
+            return req.session.save((err) => {
+              console.log(err);
+              res.redirect("/");
+            });
+          } else {
+            res.redirect("/login");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          res.redirect("/login");
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -53,18 +69,20 @@ exports.postSignup = (req, res, next) => {
       if (userDoc) {
         return res.redirect("/signup");
       }
-      return bcrypt.hash(password, 12).then((hashedPassword) => {
-        const user = new User({
-          email: email,
-          password: hashedPassword,
-          cart: { items: [] },
-        });
+      return bcrypt
+        .hash(password, 12)
+        .then((hashedPassword) => {
+          const user = new User({
+            email: email,
+            password: hashedPassword,
+            cart: { items: [] },
+          });
 
-        return user.save();
-      })
-      .then((result) => {
-        res.redirect("/login");
-      });
+          return user.save();
+        })
+        .then((result) => {
+          res.redirect("/login");
+        });
     })
     .catch((err) => {
       console.log(err);
