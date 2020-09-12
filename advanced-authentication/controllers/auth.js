@@ -7,15 +7,14 @@ const transporter = nodemailer.createTransport({
   port: 2525,
   auth: {
     user: "3b2beedcae5cb6",
-    pass: "818a5350e176b3"
-  }
+    pass: "818a5350e176b3",
+  },
 });
 
 const User = require("../models/user");
 
 exports.getLogin = (req, res, next) => {
-
-/*   transporter.verify(function(error, success) {
+  /*   transporter.verify(function(error, success) {
     if (error) {
          console.log(error);
     } else {
@@ -123,20 +122,22 @@ exports.postSignup = (req, res, next) => {
           return user.save();
         })
         .then((result) => {
-          transporter.sendMail({
-            to: email,
-            from: "shop@node-complete.com",
-            subject: 'Signup Succeeded!',
-            text: 'The signup proccess was successfull',
-            html: '<h1> The signup proccess was successfull </h1>',
-          }, (error, info) => {
-            if (error) {
+          transporter.sendMail(
+            {
+              to: email,
+              from: "shop@node-complete.com",
+              subject: "Signup Succeeded!",
+              text: "The signup proccess was successfull",
+              html: "<h1> The signup proccess was successfull </h1>",
+            },
+            (error, info) => {
+              if (error) {
                 return console.log(error);
+              }
+              console.log("Message sent: %s", info.messageId);
+              res.redirect("/login");
             }
-            console.log('Message sent: %s', info.messageId);
-            res.redirect("/login");
-          });
-
+          );
         });
     })
     .catch((err) => {
@@ -162,46 +163,39 @@ exports.getReset = (req, res, next) => {
 
 exports.postReset = (req, res, next) => {
   crypto.randomBytes(32, (err, buffer) => {
-    if(err) {
+    if (err) {
       console.log(err);
-      return res.redirect("/reset")
+      return res.redirect("/reset");
     }
-
     const token = buffer.toString("hex");
-
-    User.findOne({email: req.body.email})
-    .then(user => {
-
-      if(!user) {
-        req.flash("err", "User not found, please provide a valid user!")
-        return res.redirect("/reset")
-      }
-
-      user.resetToken = token;
-      user.resetTokenExpirationDate = Date.now() + 3600000;
-      return user.save();
-    })
-    .then(result => {
-      res.redirect("/");
-      transporter.sendMail({
-        to: email,
-        from: "shop@node-complete.com",
-        subject: 'Password Reset',
-        text: 'The password was reseted successfully',
-        html: `
-        <p>You requested a password reset</p>
-        <p>Click this <a href="http://localhost:3000/reset/${token}" link </a> to set a new password.</p>
-        `
-      }, (error, info) => {
-        if (error) {
-            return console.log(error);
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (!user) {
+          req.flash("error", "No account with that email found.");
+          return res.redirect("/reset");
+        } else {
+          user.resetToken = token;
+          user.resetTokenExpiration = Date.now() + 3600000;
+          return user.save();
         }
-        console.log('Message sent: %s', info.messageId);
+      })
+      .then((result) => {
+        transporter.sendMail({
+          to: req.body.email,
+          from: "shop@node-complete.com",
+          subject: "Password reset",
+          text: "The password reset proccess was successfully",
+          html: `
+            <p>You requested a password reset</p>
+            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+          `,
+        });
+      })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch((err) => {
+        console.log(err);
       });
-
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  })
-}
+  });
+};

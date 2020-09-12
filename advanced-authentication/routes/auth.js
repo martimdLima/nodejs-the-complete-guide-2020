@@ -16,7 +16,6 @@ router.post("/signup", authController.postSignup);
 
 router.get("/reset", authController.getReset);
 
-//router.get("/reset", authController.postReset);
-
+router.post("/reset", authController.postReset);
 
 module.exports = router;
