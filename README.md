@@ -32,11 +32,15 @@
 
 ### 12 - [Working with Mongoose](https://https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/mongoose)
 
+### 12 - [Sessions & Cookies](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sessions-and-cookies)
+
+### 12 - [Authentication](https://https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/authentication)
+
 ### 13 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
 <br>
 <br>
 
 ## Technologies Used: 
-**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose**
+**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf**
 

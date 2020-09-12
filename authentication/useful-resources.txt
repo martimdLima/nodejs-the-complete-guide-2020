@@ -1,0 +1,20 @@
+# Sessions
+https://www.quora.com/What-is-a-session-in-a-Web-Application
+
+#Cookies
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+
+# Express-session
+https://github.com/expressjs/session
+
+# BCrypt
+https://github.com/dcodeIO/bcrypt.js
+
+# CSRF Attacks 
+https://www.acunetix.com/websitesecurity/csrf-attacks/
+
+# CSurf
+https://github.com/expressjs/csurf
+
+# Connect-Flash
+https://github.com/jaredhanson/connect-flash

@@ -1,29 +1,27 @@
-// templating Engines
-npm install --save pug
-npm install --save express-handlebars
-
-// MariaDB Node.Js Connector
-npm install --save mariadb
-
-// Promise base ORM
-npm install --save sequelize
-
-// MongoDB Connecetor
-npm install -- save mongodb
 
 npm init
 npm install nodemon --save-dev
-npm install --save express ejs mongodb mongoose express-session connect-mongodb-session
+npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash
 
-
-Third party modules used so far:
+[Third party modules used so far]:
 # nodemon
 # express
-# pug
-# ejs
-# express-handlebars
-# mariadb
-# mongodb
-# mongoose
-# express-session
-# connect-mongodb-session
+# templating Engines
+## pug
+## ejs
+## express-handlebars
+# SQL
+## mariadb
+## sequelize
+# NoSQL
+## mongodb
+## mongoose
+# Sessions
+## express-session
+## connect-mongodb-session
+# Password Encryption
+## bcryptjs
+# CSRF Token Middleware
+## csurf
+# Session Messages Storage
+connect-flash
