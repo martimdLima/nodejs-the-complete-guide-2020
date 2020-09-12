@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 
@@ -158,3 +159,49 @@ exports.getReset = (req, res, next) => {
     errorMessage: errMsg,
   });
 };
+
+exports.postReset = (req, res, next) => {
+  crypto.randomBytes(32, (err, buffer) => {
+    if(err) {
+      console.log(err);
+      return res.redirect("/reset")
+    }
+
+    const token = buffer.toString("hex");
+
+    User.findOne({email: req.body.email})
+    .then(user => {
+
+      if(!user) {
+        req.flash("err", "User not found, please provide a valid user!")
+        return res.redirect("/reset")
+      }
+
+      user.resetToken = token;
+      user.resetTokenExpirationDate = Date.now() + 3600000;
+      return user.save();
+    })
+    .then(result => {
+      res.redirect("/");
+      transporter.sendMail({
+        to: email,
+        from: "shop@node-complete.com",
+        subject: 'Password Reset',
+        text: 'The password was reseted successfully',
+        html: `
+        <p>You requested a password reset</p>
+        <p>Click this <a href="http://localhost:3000/reset/${token}" link </a> to set a new password.</p>
+        `
+      }, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+      });
+
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  })
+}
