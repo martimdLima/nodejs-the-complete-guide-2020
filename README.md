@@ -46,5 +46,5 @@
 <br>
 
 ## Technologies Used: 
-**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf**
+**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator**
 
