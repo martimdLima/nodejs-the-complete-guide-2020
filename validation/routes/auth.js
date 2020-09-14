@@ -15,7 +15,13 @@ router.get("/signup", authController.getSignup);
 
 router.post(
   "/signup",
-  check("email").isEmail().withMessage("Please enter a valid email!"),
+  check("email").isEmail().withMessage("Please enter a valid email!")
+  .custom((value, {}) => {
+    if(value === "tester@tester.com") {
+        throw new Error("This email address is reserved for testers");
+    }
+    return true;
+  }),
   authController.postSignup
 );
 
