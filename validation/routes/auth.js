@@ -4,12 +4,34 @@ const { check, body } = require("express-validator/check");
 const router = express.Router();
 
 const User = require("../models/user");
-
+const bcrypt = require("bcryptjs");
 const authController = require("../controllers/auth");
 
 router.get("/login", authController.getLogin);
 
-router.post("/login", authController.postLogin);
+router.post(
+  "/login",
+  [
+    body("email")
+      .isEmail()
+      .withMessage("Please enter a valid email!")
+      .custom((value, {}) => {
+        return User.findOne({ email: value }).then((userDoc) => {
+          if (!userDoc) {
+            return Promise.reject("Invalid User, please provide a valid user");
+          }
+          return true;
+        });
+      }),
+    body(
+      "password",
+      "Please enter a alphanumeric password that's at least 6 characters long."
+    )
+      .isLength({ min: 6 })
+      .isAlphanumeric(),
+  ],
+  authController.postLogin
+);
 
 router.post("/logout", authController.postLogout);
 
