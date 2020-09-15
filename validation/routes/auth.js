@@ -15,6 +15,7 @@ router.post(
     body("email")
       .isEmail()
       .withMessage("Please enter a valid email!")
+      .normalizeEmail()
       .custom((value, {}) => {
         return User.findOne({ email: value }).then((userDoc) => {
           if (!userDoc) {
@@ -28,7 +29,8 @@ router.post(
       "Please enter a alphanumeric password that's at least 6 characters long."
     )
       .isLength({ min: 6 })
-      .isAlphanumeric(),
+      .isAlphanumeric()
+      .trim(),
   ],
   authController.postLogin
 );
@@ -43,6 +45,7 @@ router.post(
     check("email")
       .isEmail()
       .withMessage("Please enter a valid email!")
+      .normalizeEmail()
       .custom((value, {}) => {
         /*         if (value === "tester@tester.com") {
           throw new Error("This email address is reserved for testers");
@@ -61,13 +64,16 @@ router.post(
       "Please enter a alphanumeric password that's at least 6 characters long."
     )
       .isLength({ min: 6 })
-      .isAlphanumeric(),
-    body("confirmPassword").custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error("Passwords have to match! Please try again");
-      }
-      return true;
-    }),
+      .isAlphanumeric()
+      .trim(),
+    body("confirmPassword")
+      .trim()
+      .custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error("Passwords have to match! Please try again");
+        }
+        return true;
+      }),
   ],
   authController.postSignup
 );
