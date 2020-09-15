@@ -3,6 +3,8 @@ const { check, body } = require("express-validator/check");
 
 const router = express.Router();
 
+const User = require("../models/user");
+
 const authController = require("../controllers/auth");
 
 router.get("/login", authController.getLogin);
@@ -20,10 +22,17 @@ router.post(
       .isEmail()
       .withMessage("Please enter a valid email!")
       .custom((value, {}) => {
-        if (value === "tester@tester.com") {
+        /*         if (value === "tester@tester.com") {
           throw new Error("This email address is reserved for testers");
         }
-        return true;
+        return true; */
+        return User.findOne({ email: value }).then((userDoc) => {
+          if (userDoc) {
+            return Promise.reject(
+              "Email already exists in the database, please choose a different one"
+            );
+          }
+        });
       }),
     body(
       "password",

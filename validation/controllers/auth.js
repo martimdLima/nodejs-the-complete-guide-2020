@@ -91,7 +91,6 @@ exports.getSignup = (req, res, next) => {
 exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -102,44 +101,34 @@ exports.postSignup = (req, res, next) => {
     });
   }
 
-  User.findOne({ email: email })
-    .then((userDoc) => {
-      if (userDoc) {
-        req.flash(
-          "error",
-          "Email already exists in the database, please choose a different one"
-        );
-        return res.redirect("/signup");
-      }
-      return bcrypt
-        .hash(password, 12)
-        .then((hashedPassword) => {
-          const user = new User({
-            email: email,
-            password: hashedPassword,
-            cart: { items: [] },
-          });
+  bcrypt
+    .hash(password, 12)
+    .then((hashedPassword) => {
+      const user = new User({
+        email: email,
+        password: hashedPassword,
+        cart: { items: [] },
+      });
 
-          return user.save();
-        })
-        .then((result) => {
-          transporter.sendMail(
-            {
-              to: email,
-              from: "shop@node-complete.com",
-              subject: "Signup Succeeded!",
-              text: "The signup proccess was successfull",
-              html: "<h1> The signup proccess was successfull </h1>",
-            },
-            (error, info) => {
-              if (error) {
-                return console.log(error);
-              }
-              console.log("Message sent: %s", info.messageId);
-              res.redirect("/login");
-            }
-          );
-        });
+      return user.save();
+    })
+    .then((result) => {
+      transporter.sendMail(
+        {
+          to: email,
+          from: "shop@node-complete.com",
+          subject: "Signup Succeeded!",
+          text: "The signup proccess was successfull",
+          html: "<h1> The signup proccess was successfull </h1>",
+        },
+        (error, info) => {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Message sent: %s", info.messageId);
+          res.redirect("/login");
+        }
+      );
     })
     .catch((err) => {
       console.log(err);
