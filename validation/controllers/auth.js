@@ -26,6 +26,11 @@ exports.getLogin = (req, res, next) => {
     path: "/login",
     pageTitle: "Login Page",
     errorMessage: errMsg,
+    oldInput: {
+      email: "",
+      password: "",
+    },
+    validationErrors: [],
   });
 };
 
@@ -39,17 +44,32 @@ exports.postLogin = (req, res, next) => {
       path: "/login",
       pageTitle: "Login",
       errorMessage: errors.array()[0].msg,
+      oldInput: {
+        email: email,
+        password: password,
+      },
+      validationErrors: errors.array(),
     });
   }
 
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
-        return res.redirect("/login");
+        return res.status(422).render("auth/login", {
+          path: "/login",
+          pageTitle: "Login",
+          errorMessage: "Invalid credentials, please try again",
+          oldInput: {
+            email: email,
+            password: password,
+          },
+          validationErrors: [{ param: "email", param: "password" }],
+        });
       }
 
-      bcrypt
-        .compare(password, user.password)
+      // bcrypt
+      //   .compare(password, user.password)
+      validatePassword(user, password)
         .then((doMatch) => {
           if (doMatch) {
             req.session.isLoggedIn = true;
@@ -58,10 +78,17 @@ exports.postLogin = (req, res, next) => {
               console.log(err);
               res.redirect("/");
             });
-          } else {
-            req.flash("error", "Invalid credentials");
-            res.redirect("/login");
           }
+          return res.status(422).render("auth/login", {
+            path: "/login",
+            pageTitle: "Login",
+            errorMessage: "Invalid credentials, please try again",
+            oldInput: {
+              email: email,
+              password: password,
+            },
+            validationErrors: [],
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -98,6 +125,7 @@ exports.getSignup = (req, res, next) => {
       password: "",
       confirmPassword: "",
     },
+    validationErrors: [],
   });
 };
 
@@ -116,11 +144,13 @@ exports.postSignup = (req, res, next) => {
         password: password,
         confirmPassword: req.body.confirmPassword,
       },
+      validationErrors: errors.array(),
     });
   }
 
-  bcrypt
-    .hash(password, 12)
+  // bcrypt
+  //   .hash(password, 12)
+  hashPassword(password, 12)
     .then((hashedPassword) => {
       const user = new User({
         email: email,
@@ -250,7 +280,8 @@ exports.postNewPassword = (req, res, next) => {
   })
     .then((user) => {
       resetUser = user;
-      return bcrypt.hash(newPassword, 12);
+      //return bcrypt.hash(newPassword, 12);
+      return hashPassword(newPassword, 12);
     })
     .then((hashedPassword) => {
       resetUser.password = hashedPassword;
@@ -266,3 +297,11 @@ exports.postNewPassword = (req, res, next) => {
       console.log(err);
     });
 };
+
+function hashPassword(password, saltRounds) {
+  return bcrypt.hash(password, saltRounds);
+}
+
+function validatePassword(user, password) {
+  return bcrypt.compare(password, user.password);
+}
