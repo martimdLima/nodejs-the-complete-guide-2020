@@ -32,9 +32,13 @@
 
 ### 12 - [Working with Mongoose](https://https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/mongoose)
 
-### 12 - [Sessions & Cookies](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sessions-and-cookies)
+### 13 - [Sessions & Cookies](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sessions-and-cookies)
 
-### 12 - [Authentication](https://https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/authentication)
+### 14 - [Authentication](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/authentication)
+
+### 15 - [Sending Emails](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sending-emails)
+
+### 16 - [Validation]()
 
 ### 13 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
@@ -42,5 +46,5 @@
 <br>
 
 ## Technologies Used: 
-**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf**
+**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator**
 
