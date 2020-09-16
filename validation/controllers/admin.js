@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator/check");
+const { Http2ServerRequest } = require("http2");
 
 const Product = require("../models/product");
 
@@ -13,7 +14,7 @@ exports.getProducts = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      errorHandling(err);
     });
 };
 
@@ -67,7 +68,7 @@ exports.postAddProduct = (req, res, next) => {
       res.redirect("/admin/products");
     })
     .catch((err) => {
-     /*  return res.status(500).render("admin/edit-product", {
+      /*  return res.status(500).render("admin/edit-product", {
         pageTitle: "Add Product",
         path: "/admin/add-product",
         editing: false,
@@ -81,7 +82,7 @@ exports.postAddProduct = (req, res, next) => {
         errorMessage: "Database operation failed, please try again",
         validationErrors: [],
       }); */
-      res.redirect("/500")
+      errorHandling(err);
     });
 };
 
@@ -92,7 +93,6 @@ exports.getEditProduct = (req, res, next) => {
   }
 
   const prodId = req.params.productId;
-
   Product.findById(prodId)
     .then((product) => {
       if (!product) {
@@ -110,7 +110,7 @@ exports.getEditProduct = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      errorHandling(err);
     });
 };
 
@@ -156,7 +156,7 @@ exports.postEditProduct = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      errorHandling(err);
     });
 };
 
@@ -169,6 +169,12 @@ exports.postDeleteProduct = (req, res, next) => {
       res.redirect("/admin/products");
     })
     .catch((err) => {
-      console.log(err);
+      errorHandling(err);
     });
 };
+
+function errorHandling(err) {
+  const error = new Error(err);
+  error.httpStatusCode = 500;
+  return next(error);
+}
