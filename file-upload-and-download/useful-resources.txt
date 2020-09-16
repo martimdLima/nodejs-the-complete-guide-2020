@@ -1,0 +1,5 @@
+# Available Status Codes
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+# Error Handling in Express.js
+https://expressjs.com/en/guide/error-handling.html
