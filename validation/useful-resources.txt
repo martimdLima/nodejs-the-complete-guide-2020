@@ -1,6 +1,3 @@
-# MailTrap
-https://mailtrap.io/
-https://blog.mailtrap.io/sending-emails-with-nodemailer/
-
-# nodemailer
-https://nodemailer.com/about/
+# express-validator
+https://express-validator.github.io/docs/
+https://github.com/express-validator/express-validator
