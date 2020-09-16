@@ -1,38 +1,84 @@
+########################################
+# [Installation routine]:  #
+########################################
 
 npm init
 npm install nodemon --save-dev
 npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer express-validator
 
-[Third party services used so far]:
+########################################
+# [Third party services used so far]:  #
+########################################
 # https://cloud.mongodb.com/
 # https://mailtrap.io/
 
+#######################################
+# [Third party modules used so far]:  #
+#######################################
 
-[Third party modules used so far]:
-#server restart utility
-# nodemon
-# web framework
-# express
-# templating Engines
-## pug
-## ejs
-## express-handlebars
-# SQL
-## mariadb
-## sequelize
-# NoSQL
-## mongodb
-## mongoose
-# Sessions
-## express-session
-## connect-mongodb-session
-# Password Encryption
-## bcryptjs
-# CSRF Token Middleware
-## csurf
-# Session Messages Storage
-connect-flash
-# Sending emails
-## nodemailer
-# Validation
-## express-validator
+###########################
+## server restart utility #
+###########################
+
+- nodemon
+
+##########################
+## web framework         #
+##########################
+
+- express
+
+##########################
+## Templating Engines    #
+##########################
+
+- pug
+- ejs
+- express-handlebars
+
+##########################
+## SQL                   #
+##########################
+
+- mariadb
+- sequelize
+
+##########################
+## NoSQL                 #
+##########################
+
+- mongodb
+- mongoose
+
+##########################
+## Sessions              #
+##########################
+
+- express-session
+- connect-mongodb-session
+
+##########################
+## Password Encryption   #
+##########################
+
+- bcryptjs
+- CSRF Token Middleware
+- csurf
+
+#############################
+## Session Messages Storage #
+#############################
+
+- connect-flash
+
+############################
+## Sending Emails          #
+############################
+
+- nodemailer
+
+############################
+## Validation              #
+############################
+
+- express-validator

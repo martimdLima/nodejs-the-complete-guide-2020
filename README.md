@@ -38,7 +38,7 @@
 
 ### 15 - [Sending Emails](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/sending-emails)
 
-### 16 - [Validation]()
+### 16 - [Validation](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/validation)
 
 ### 13 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
