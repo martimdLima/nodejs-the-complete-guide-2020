@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator/check");
-const { Http2ServerRequest } = require("http2");
+const { errHandling } = require("../util/errorhandling");
 
 const Product = require("../models/product");
 
@@ -14,7 +14,7 @@ exports.getProducts = (req, res, next) => {
       });
     })
     .catch((err) => {
-      errorHandling(err);
+      errHandling(err);
     });
 };
 
@@ -68,21 +68,7 @@ exports.postAddProduct = (req, res, next) => {
       res.redirect("/admin/products");
     })
     .catch((err) => {
-      /*  return res.status(500).render("admin/edit-product", {
-        pageTitle: "Add Product",
-        path: "/admin/add-product",
-        editing: false,
-        hasError: true,
-        product: {
-          title: title,
-          price: price,
-          imageUrl: imageUrl,
-          description: description,
-        },
-        errorMessage: "Database operation failed, please try again",
-        validationErrors: [],
-      }); */
-      errorHandling(err);
+      errHandling(err);
     });
 };
 
@@ -110,7 +96,7 @@ exports.getEditProduct = (req, res, next) => {
       });
     })
     .catch((err) => {
-      errorHandling(err);
+      errHandling(err);
     });
 };
 
@@ -156,7 +142,7 @@ exports.postEditProduct = (req, res, next) => {
       });
     })
     .catch((err) => {
-      errorHandling(err);
+      errHandling(err);
     });
 };
 
@@ -169,12 +155,6 @@ exports.postDeleteProduct = (req, res, next) => {
       res.redirect("/admin/products");
     })
     .catch((err) => {
-      errorHandling(err);
+      errHandling(err);
     });
 };
-
-function errorHandling(err) {
-  const error = new Error(err);
-  error.httpStatusCode = 500;
-  return next(error);
-}

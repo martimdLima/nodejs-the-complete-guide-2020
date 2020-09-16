@@ -46,8 +46,7 @@ app.use((req, res, next) => {
   } else {
     User.findById(req.session.user._id)
       .then((user) => {
-
-        if(!user) {
+        if (!user) {
           return next();
         }
         req.user = user;
@@ -76,7 +75,7 @@ app.use(errorController.get404);
 app.use((error, req, res, next) => {
   // res.status(error.httpStatusCode).render(...);
   res.redirect("/500");
-})
+});
 
 mongoose
   .connect(MONGODB_URI)
