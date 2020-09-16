@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-const { validationResult } = require("express-validator/check");
+const { validationResult } = require("express-validator");
 const transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,

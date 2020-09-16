@@ -1,4 +1,4 @@
-const { validationResult } = require("express-validator/check");
+const { validationResult } = require("express-validator");
 const { errHandling } = require("../util/errorhandling");
 
 const Product = require("../models/product");
