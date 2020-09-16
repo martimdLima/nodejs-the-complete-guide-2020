@@ -1,7 +1,6 @@
 const crypto = require("crypto");
-const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
-const { validationResult } = require("express-validator/check");
+const { validationResult } = require("express-validator");
 const transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
@@ -11,6 +10,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const { hashPassword } = require("../util/auth");
+const { validatePassword } = require("../util/auth");
+const { errHandling } = require("../util/errorhandling");
 const User = require("../models/user");
 
 exports.getLogin = (req, res, next) => {
@@ -96,7 +98,7 @@ exports.postLogin = (req, res, next) => {
         });
     })
     .catch((err) => {
-      console.log(err);
+      errHandling(err);
     });
 };
 
@@ -148,8 +150,6 @@ exports.postSignup = (req, res, next) => {
     });
   }
 
-  // bcrypt
-  //   .hash(password, 12)
   hashPassword(password, 12)
     .then((hashedPassword) => {
       const user = new User({
@@ -179,7 +179,7 @@ exports.postSignup = (req, res, next) => {
       );
     })
     .catch((err) => {
-      console.log(err);
+      errHandling(err);
     });
 };
 
@@ -233,7 +233,7 @@ exports.postReset = (req, res, next) => {
         res.redirect("/");
       })
       .catch((err) => {
-        console.log(err);
+        errHandling(err);
       });
   });
 };
@@ -262,7 +262,7 @@ exports.getNewPassword = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      errHandling(err);
     });
 };
 
@@ -294,14 +294,6 @@ exports.postNewPassword = (req, res, next) => {
       res.redirect("/login");
     })
     .catch((err) => {
-      console.log(err);
+      errHandling(err);
     });
 };
-
-function hashPassword(password, saltRounds) {
-  return bcrypt.hash(password, saltRounds);
-}
-
-function validatePassword(user, password) {
-  return bcrypt.compare(password, user.password);
-}
