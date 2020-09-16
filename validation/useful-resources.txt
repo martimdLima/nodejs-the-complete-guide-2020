@@ -1,8 +1,5 @@
-# express-validator
-https://express-validator.github.io/docs/
-https://github.com/express-validator/express-validator
+# Available Status Codes
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
-https://github.com/chriso/validator.js
-
-https://www.geeksforgeeks.org/how-to-validate-data-using-express-validator-module-in-node-js/
-https://auth0.com/blog/express-validator-tutorial/
+# Error Handling in Express.js
+https://expressjs.com/en/guide/error-handling.html
