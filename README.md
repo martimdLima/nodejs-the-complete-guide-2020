@@ -44,11 +44,17 @@
 
 ### 18 [File Upload and Download]()
 
+### 18 [Pagination]()
+
+### 18 [Async Requests]()
+
+### 18 [Payments]()
+
 ### 18 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
 <br>
 <br>
 
 ## Technologies Used: 
-**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator**
+**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator, multer, pdfkit, stripe**
 
