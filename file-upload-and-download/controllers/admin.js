@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const { errHandling } = require("../util/errorhandling");
 
+const fileHelper = require("../util/file");
 const Product = require("../models/product");
 
 exports.getProducts = (req, res, next) => {
@@ -36,7 +37,7 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
   const errors = validationResult(req);
 
-  if(!image) {
+  if (!image) {
     return res.status(422).render("admin/edit-product", {
       pageTitle: "Add Product",
       path: "/admin/add-product",
@@ -47,7 +48,8 @@ exports.postAddProduct = (req, res, next) => {
         price: price,
         description: description,
       },
-      errorMessage: "Attached file type is not supported. Please provide a png, jpg or jpeg file.",
+      errorMessage:
+        "Attached file type is not supported. Please provide a png, jpg or jpeg file.",
       validationErrors: [],
     });
   }
@@ -152,7 +154,8 @@ exports.postEditProduct = (req, res, next) => {
       product.price = updatedPrice;
       product.description = updatedDescription;
 
-      if(image) {
+      if (image) {
+        fileHelper.deleteFile(product.imageUrl);
         product.imageUrl = image.path;
       }
 
@@ -169,7 +172,14 @@ exports.postEditProduct = (req, res, next) => {
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
 
-  Product.deleteOne({ _id: prodId, userId: req.user._id })
+  Product.findById(prodId)
+    .then((product) => {
+      if (!product) {
+        return next(new Error("Product not found!"));
+      }
+      fileHelper.deleteFile(product.imageUrl);
+      return Product.deleteOne({ _id: prodId, userId: req.user._id });
+    })
     .then(() => {
       console.log("Destroyed product");
       res.redirect("/admin/products");
