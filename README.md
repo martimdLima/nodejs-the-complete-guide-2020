@@ -40,7 +40,9 @@
 
 ### 16 - [Validation](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/validation)
 
-### 17 - [Error handling]()
+### 17 - [Error handling](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/validation)
+
+### 18 [File Upload and Download]()
 
 ### 18 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
