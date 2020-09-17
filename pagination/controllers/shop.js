@@ -1,10 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-const PDFDocument = require("pdfkit")
+const PDFDocument = require("pdfkit");
+const { errHandling } = require("../util/errorhandling");
 
 const Product = require("../models/product");
 const Order = require("../models/order");
-const { errHandling } = require("../util/errorhandling");
+
+const ITEMS_PER_PAGE = 2;
 
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -37,7 +39,11 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
+  const page = req.query.page;
+
   Product.find()
+    .skip((page - 1) * ITEMS_PER_PAGE)
+    .limit(ITEMS_PER_PAGE)
     .then((products) => {
       res.render("shop/index", {
         prods: products,
@@ -175,9 +181,18 @@ exports.getInvoice = (req, res, next) => {
 
       pdfDoc.fontSize(24).text("-----------------------------");
       let totalPrice = 0;
-      order.products.forEach(prod => {    
-        pdfDoc.fontSize(14).text(prod.product.title + " - " + prod.quantity + " x " + "€" + prod.product.price);
-        totalPrice+=(prod.quantity * prod.product.price);
+      order.products.forEach((prod) => {
+        pdfDoc
+          .fontSize(14)
+          .text(
+            prod.product.title +
+              " - " +
+              prod.quantity +
+              " x " +
+              "€" +
+              prod.product.price
+          );
+        totalPrice += prod.quantity * prod.product.price;
       });
       pdfDoc.fontSize(24).text("-----------------------------");
       pdfDoc.fontSize(18).text("Total Price: €" + totalPrice);
@@ -195,15 +210,13 @@ exports.getInvoice = (req, res, next) => {
         res.send(data);
       }); */
 
-/*       const file = fs.createReadStream(invoicePath);
+      /*       const file = fs.createReadStream(invoicePath);
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(
         "Content-Disposition",
         'inline; filename="' + invoiceName + '"'
       );
       file.pipe(res); */
-
-
     })
     .catch((err) => next(err));
 };
