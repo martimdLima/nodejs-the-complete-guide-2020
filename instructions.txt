@@ -4,7 +4,7 @@
 
 npm init
 npm install nodemon --save-dev
-npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer express-validator multer
+npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer express-validator multer pdfkit
 
 ########################################
 # [Third party services used so far]:  #
@@ -88,3 +88,9 @@ npm install --save express ejs mongodb mongoose express-session connect-mongodb-
 ###################################
 
 - multer
+
+###################################
+## PDF Creation                   #
+###################################
+
+- pdfkit
