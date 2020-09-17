@@ -1,6 +1,10 @@
+const fs = require("fs");
+const path = require("path");
+
 const Product = require("../models/product");
 const Order = require("../models/order");
 const { errHandling } = require("../util/errorhandling");
+const { SSL_OP_NETSCAPE_CA_DN_BUG } = require("constants");
 
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -137,4 +141,20 @@ exports.postOrder = (req, res, next) => {
     .catch((err) => {
       errHandling(err);
     });
+};
+
+exports.getInvoice = (req, res, next) => {
+
+  const orderId = req.params.orderId;
+  const invoiceName = "invoice-" + orderId + ".pdf";
+  const invoicePath = path.join("data", "invoices", invoiceName);
+
+  fs.readFile(invoicePath, (err, data) => {
+    if(err) {
+      return next(err);
+    }
+
+    res.send(data);
+  });
+
 };
