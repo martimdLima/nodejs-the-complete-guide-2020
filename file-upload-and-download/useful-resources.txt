@@ -1,5 +1,8 @@
-# Available Status Codes
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+# Multer
+https://github.com/expressjs/multer
 
-# Error Handling in Express.js
-https://expressjs.com/en/guide/error-handling.html
+# Streaming Files
+https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93
+
+#Generating PDFs with PDFKit
+http://pdfkit.org/docs/getting_started.html
