@@ -2,7 +2,6 @@ const express = require("express");
 const { check, body } = require("express-validator");
 
 const router = express.Router();
-
 const isAuth = require("../middleware/is-auth");
 const adminController = require("../controllers/admin");
 

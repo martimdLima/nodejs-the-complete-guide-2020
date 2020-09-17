@@ -1,3 +1,5 @@
+<% if (hasNextPage || hasPreviousPage) {%>
+<!-- only show pagination if any it's true  -->
 <section class="pagination">
     <% if (currentPage !== 1 && previousPage !== 1) { %>
     <a href="?page=1">1</a>
@@ -14,3 +16,4 @@
     <a href="?page=<%= lastPage %>"><%= lastPage %></a>
     <% } %>
 </section>
+<% } %>

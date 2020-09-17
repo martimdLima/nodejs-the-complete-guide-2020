@@ -6,9 +6,19 @@ const isAuth = require("../middleware/is-auth");
 
 const shopController = require("../controllers/shop");
 
-router.get("/", shopController.getIndex);
+const { paginateItems } = require("../util/pagination");
 
-router.get("/products", shopController.getProducts);
+router.get(
+  "/",
+  paginateItems("shop/index", "Shop", "/"),
+  shopController.getIndex
+);
+
+router.get(
+  "/products",
+  paginateItems("shop/index", "Shop", "/"),
+  shopController.getProducts
+);
 
 router.get("/products/:productId", shopController.getProduct);
 
