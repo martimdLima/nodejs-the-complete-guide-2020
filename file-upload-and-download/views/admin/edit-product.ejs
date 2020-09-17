@@ -24,14 +24,15 @@
                     value="<% if (editing || hasError) { %><%= product.imageUrl %><% } %>">
             </div> -->
             <div class="form-control">
-                <label for="image">Image</label>
+                <label for="imageUrl">Image</label>
                 <input type="file" name="image" id="image"
-                    value="<% if (editing || hasError) { %><%= product.image %><% } %>">
+                    value="<% if (editing || hasError) { %><%= product.imageUrl %><% } %>">
             </div>
             <div class="form-control">
                 <label for="price">Price</label>
                 <input class="<%= validationErrors.find(e => e.param === 'price') ? 'invalid' : '' %>" type="number"
-                    name="price" id="price" step="0.01">
+                    name="price" id="price" step="0.01"
+                    value="<% if (editing || hasError) { %><%= product.price %><% } %>">
             </div>
             <div class="form-control">
                 <label for="description">Description</label>
@@ -44,8 +45,7 @@
             <% } %>
 
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add
-                Product<% } %></button>
+            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
         </form>
     </main>
     <%- include('../includes/end.ejs') %>
