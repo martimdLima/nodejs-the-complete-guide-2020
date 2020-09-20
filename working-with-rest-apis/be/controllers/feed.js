@@ -5,36 +5,45 @@ const Post = require("../models/post");
 
 exports.getPosts = (req, res, next) => {
   Post.find()
-    .then((posts) => {
+    .then(posts => {
       res
         .status(200)
-        .json({ message: "Fetched posts successfully.", posts: posts });
+        .json({ message: 'Fetched posts successfully.', posts: posts });
     })
-    .catch((err) => {
-      /* if (!err.statusCode) {
+    .catch(err => {
+      if (!err.statusCode) {
         err.statusCode = 500;
       }
-      next(err); */
-      nextError(err, 500);
+      next(err);
     });
 };
 
 exports.createPost = (req, res, next) => {
+  
   const errors = validationResult(req);
+  
   if (!errors.isEmpty()) {
     throwError(err, 422, "Validation failed, entered data is incorrect.");
-    /*     const error = new Error('Validation failed, entered data is incorrect.');
+    /*     
+    const error = new Error('Validation failed, entered data is incorrect.');
     error.statusCode = 422;
     throw error; */
   }
+
+  if(!req.file) {
+    throwError(422, "No image provided");
+  }
+
+  const imageUrl = req.file.path;
   const title = req.body.title;
   const content = req.body.content;
   const post = new Post({
     title: title,
     content: content,
-    imageUrl: "images/duck.jpg",
-    creator: { name: "Maximilian" },
+    imageUrl: imageUrl,
+    creator: { name: "user" },
   });
+  
   post
     .save()
     .then((result) => {
