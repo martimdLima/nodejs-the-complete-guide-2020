@@ -17,13 +17,14 @@ const userSchema = new Schema(
       },
       status: {
           type: String,
-          required: true,
+          default: "this is a new post"
       },
-      posts: {
+      posts: [
+        {
           type: Schema.Types.ObjectId,
-          ref: "Post"
-          
-      }
+          ref: 'Post'
+        }
+      ]
     }
   );
   

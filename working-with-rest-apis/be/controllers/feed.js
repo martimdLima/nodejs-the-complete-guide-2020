@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
-const { feedNextError, feedThrowError} = require("../util/errorhandling");
+const { nextError, feedThrowError} = require("../util/errorhandling");
 
 const Post = require("../models/post");
 
@@ -29,7 +29,7 @@ exports.getPosts = (req, res, next) => {
         });
     })
     .catch((err) => {
-      feedNextError(err, 500);
+      nextError(err, 500);
     });
 };
 
@@ -63,7 +63,7 @@ exports.createPost = (req, res, next) => {
       });
     })
     .catch((err) => {
-      feedNextError(err, 500);
+      nextError(err, 500);
     });
 };
 
@@ -79,7 +79,7 @@ exports.getPost = (req, res, next) => {
       res.status(200).json({ message: "Post fetched.", post: post });
     })
     .catch((err) => {
-      feedNextError(err, 500);
+      nextError(err, 500);
     });
 };
 
@@ -120,7 +120,7 @@ exports.updatePost = (req, res, next) => {
       res.status(200).json({ message: "Post updated!", post: result });
     })
     .catch((err) => {
-      feedNextError(err, 500);
+      nextError(err, 500);
     });
 };
 
@@ -144,7 +144,7 @@ exports.deletePost = (req, res, next) => {
       res.status(200).json({ message: "Post was deleted" });
     })
     .catch((err) => {
-      feedNextError(err, 500);
+      nextError(err, 500);
     });
 };
 
