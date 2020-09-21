@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
-const { nextError, throwError } = require("../util/errorhandling");
+const { feedNextError, feedThrowError} = require("../util/errorhandling");
 
 const Post = require("../models/post");
 
@@ -29,7 +29,7 @@ exports.getPosts = (req, res, next) => {
         });
     })
     .catch((err) => {
-      nextError(err, 500);
+      feedNextError(err, 500);
     });
 };
 
@@ -37,11 +37,11 @@ exports.createPost = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    throwError(err, 422, "Validation failed, entered data is incorrect.");
+    feedThrowError(422, "Validation failed, entered data is incorrect.");
   }
 
   if (!req.file) {
-    throwError(422, "No image provided");
+    feedThrowError(422, "No image provided");
   }
 
   const imageUrl = req.file.path;
@@ -63,7 +63,7 @@ exports.createPost = (req, res, next) => {
       });
     })
     .catch((err) => {
-      nextError(err, 500);
+      feedNextError(err, 500);
     });
 };
 
@@ -79,7 +79,7 @@ exports.getPost = (req, res, next) => {
       res.status(200).json({ message: "Post fetched.", post: post });
     })
     .catch((err) => {
-      nextError(err, 500);
+      feedNextError(err, 500);
     });
 };
 
@@ -88,7 +88,7 @@ exports.updatePost = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    throwError(422, "Validation failed, entered data is incorrect.");
+    feedThrowError(422, "Validation failed, entered data is incorrect.");
   }
 
   const title = req.body.title;
@@ -100,13 +100,13 @@ exports.updatePost = (req, res, next) => {
   }
 
   if (!imageUrl) {
-    throwError(422, "No file picked.");
+    feedThrowError(422, "No file picked.");
   }
 
   Post.findById(postId)
     .then((post) => {
       if (!post) {
-        throwError(404, "Couldn't find post.");
+        feedThrowError(404, "Couldn't find post.");
       }
       if (imageUrl !== post.imageUrl) {
         clearImage(post.imageUrl);
@@ -120,7 +120,7 @@ exports.updatePost = (req, res, next) => {
       res.status(200).json({ message: "Post updated!", post: result });
     })
     .catch((err) => {
-      nextError(err, 500);
+      feedNextError(err, 500);
     });
 };
 
@@ -130,7 +130,7 @@ exports.deletePost = (req, res, next) => {
   Post.findById(postId)
     .then((post) => {
       if (!post) {
-        throwError(404, "Couldn't find post.");
+        feedThrowError(404, "Couldn't find post.");
       }
 
       // check for logged user
@@ -144,7 +144,7 @@ exports.deletePost = (req, res, next) => {
       res.status(200).json({ message: "Post was deleted" });
     })
     .catch((err) => {
-      nextError(err, 500);
+      feedNextError(err, 500);
     });
 };
 
