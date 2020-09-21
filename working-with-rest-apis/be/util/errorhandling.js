@@ -1,4 +1,4 @@
-module.exports.feedThrowError = function (statusCode, message) {
+module.exports.throwError = function (statusCode, message) {
   const error = new Error(message);
   error.statusCode = statusCode;
   throw error;

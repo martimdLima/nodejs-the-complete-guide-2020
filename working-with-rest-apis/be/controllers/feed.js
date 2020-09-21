@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
-const { nextError, feedThrowError} = require("../util/errorhandling");
+const { nextError, throwError} = require("../util/errorhandling");
 
 const Post = require("../models/post");
 
@@ -37,11 +37,11 @@ exports.createPost = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    feedThrowError(422, "Validation failed, entered data is incorrect.");
+    throwError(422, "Validation failed, entered data is incorrect.");
   }
 
   if (!req.file) {
-    feedThrowError(422, "No image provided");
+    throwError(422, "No image provided");
   }
 
   const imageUrl = req.file.path;
@@ -88,7 +88,7 @@ exports.updatePost = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    feedThrowError(422, "Validation failed, entered data is incorrect.");
+    throwError(422, "Validation failed, entered data is incorrect.");
   }
 
   const title = req.body.title;
@@ -100,13 +100,13 @@ exports.updatePost = (req, res, next) => {
   }
 
   if (!imageUrl) {
-    feedThrowError(422, "No file picked.");
+    throwError(422, "No file picked.");
   }
 
   Post.findById(postId)
     .then((post) => {
       if (!post) {
-        feedThrowError(404, "Couldn't find post.");
+        throwError(404, "Couldn't find post.");
       }
       if (imageUrl !== post.imageUrl) {
         clearImage(post.imageUrl);
@@ -130,7 +130,7 @@ exports.deletePost = (req, res, next) => {
   Post.findById(postId)
     .then((post) => {
       if (!post) {
-        feedThrowError(404, "Couldn't find post.");
+        throwError(404, "Couldn't find post.");
       }
 
       // check for logged user
