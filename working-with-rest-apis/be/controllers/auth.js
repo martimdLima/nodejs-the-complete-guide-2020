@@ -70,3 +70,38 @@ exports.login = (req, res, next) => {
       nextError(next, err, 500);
     });
 };
+
+exports.getUserStatus = (req, res, next) => {
+  User.findById(req.userId)
+    .then((user) => {
+      if (!user) {
+        throwError(404, "Couldn't find any user that met the criteria.");
+      }
+
+      const status = user.status;
+      res.status(200).json({ status: status });
+    })
+    .catch((err) => {
+      nextError(next, err, 500);
+    });
+};
+
+exports.updateUserStatus = (req, res, next) => {
+  const newStatus = req.body.status;
+
+  User.findById(req.userId)
+    .then((user) => {
+      if (!user) {
+        throwError(404, "Couldn't find any user that met the criteria.");
+      }
+
+      user.status = newStatus;
+      return user.save();
+    })
+    .then((result) => {
+      res.status(200).json({ message: "User updated." });
+    })
+    .catch((err) => {
+      nextError(next, err, 500);
+    });
+};
