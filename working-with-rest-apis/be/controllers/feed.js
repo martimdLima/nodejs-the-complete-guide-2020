@@ -147,14 +147,19 @@ exports.deletePost = (req, res, next) => {
       if (post.creator.toString() !== req.userId.toString()) {
         throwError(403, "Not authorized!");
       }
-      // check for logged user
 
       clearImage(post.imageUrl);
 
       return Post.findByIdAndRemove(postId);
     })
     .then((result) => {
-      console.log(result);
+      return User.findById(req.userId);
+    })
+    .then((user) => {
+      user.posts.pull(postId);
+      return user.save();
+    })
+    .then((result) => {
       res.status(200).json({ message: "Post was deleted" });
     })
     .catch((err) => {
