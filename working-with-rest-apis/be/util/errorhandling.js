@@ -11,10 +11,9 @@ module.exports.authThrowError = function (errors, statusCode, message) {
   throw error;
 };
 
-module.exports.nextError = function (error, statusCode) {
-  if (error.statusCode) {
+module.exports.nextError = function (next, error, statusCode) {
+  if (!error.statusCode) {
     error.statusCode = statusCode;
   }
-
   next(error);
 };

@@ -35,7 +35,7 @@ exports.signup = (req, res, next) => {
       res.status(201).json({ message: "User created", userId: result._id });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };
 
@@ -64,9 +64,9 @@ exports.login = (req, res, next) => {
         { expiresIn: "5h" }
       );
 
-      res.status(200).json({token: token, userId: loadedUser._id.toString()});
+      res.status(200).json({ token: token, userId: loadedUser._id.toString() });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };

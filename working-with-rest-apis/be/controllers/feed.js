@@ -28,7 +28,7 @@ exports.getPosts = (req, res, next) => {
       });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };
 
@@ -72,7 +72,7 @@ exports.createPost = (req, res, next) => {
       });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };
 
@@ -88,7 +88,7 @@ exports.getPost = (req, res, next) => {
       res.status(200).json({ message: "Post fetched.", post: post });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };
 
@@ -117,6 +117,9 @@ exports.updatePost = (req, res, next) => {
       if (!post) {
         throwError(404, "Couldn't find post.");
       }
+      if (post.creator.toString() !== req.userId.toString()) {
+        throwError(403, "Not authorized!");
+      }
       if (imageUrl !== post.imageUrl) {
         clearImage(post.imageUrl);
       }
@@ -129,7 +132,7 @@ exports.updatePost = (req, res, next) => {
       res.status(200).json({ message: "Post updated!", post: result });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };
 
@@ -141,7 +144,9 @@ exports.deletePost = (req, res, next) => {
       if (!post) {
         throwError(404, "Couldn't find post.");
       }
-
+      if (post.creator.toString() !== req.userId.toString()) {
+        throwError(403, "Not authorized!");
+      }
       // check for logged user
 
       clearImage(post.imageUrl);
@@ -153,7 +158,7 @@ exports.deletePost = (req, res, next) => {
       res.status(200).json({ message: "Post was deleted" });
     })
     .catch((err) => {
-      nextError(err, 500);
+      nextError(next, err, 500);
     });
 };
 
