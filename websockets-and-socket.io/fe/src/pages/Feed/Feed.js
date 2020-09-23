@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import openSocket from "socket.io-client";
 
-
 import Post from "../../components/Feed/Post/Post";
 import Button from "../../components/Button/Button";
 import FeedEdit from "../../components/Feed/FeedEdit/FeedEdit";
@@ -42,7 +41,13 @@ class Feed extends Component {
 
     this.loadPosts();
 
-    openSocket("http://localhost:8080");
+    const socket = openSocket("http://localhost:8080");
+
+    socket.on("posts", (data) => {
+      if (data.action === "create") {
+        this.addPost(data.post);
+      }
+    });
   }
 
   addPost = (post) => {
@@ -189,8 +194,6 @@ class Feed extends Component {
               (p) => p._id === prevState.editPost._id
             );
             updatedPosts[postIndex] = post;
-          } else if (prevState.posts.length < 2) {
-            updatedPosts = prevState.posts.concat(post);
           }
           return {
             posts: updatedPosts,
