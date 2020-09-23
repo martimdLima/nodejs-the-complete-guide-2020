@@ -9,9 +9,12 @@ npm install --save express ejs mongodb mongoose express-session connect-mongodb-
 
 # REST API Server
 npm init
+[backend]
 npm install nodemon --save-dev
-npm install --save express body-parser express-validator mongoose multer bcryptjs jsonwebtoken
+npm install --save express body-parser express-validator mongoose multer bcryptjs jsonwebtoken socket.io
 
+[frontend]
+npm install --save socket.io-client
 
 ########################################
 # [Third party services used so far]:  #
@@ -114,3 +117,10 @@ npm install --save express body-parser express-validator mongoose multer bcryptj
 ########################################
 
 - jsonwebtoken
+
+########################################
+## Creating WebSockets                 #
+########################################
+
+- socket.io
+- socket.io-client
