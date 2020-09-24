@@ -1,7 +1,6 @@
-const fs = require("fs");
-const path = require("path");
 const { validationResult } = require("express-validator");
 const { nextError, throwError } = require("../util/errorhandling");
+const { clearImage } = require("../util/image");
 
 const io = require("../socket");
 
@@ -169,9 +168,9 @@ exports.deletePost = async (req, res, next) => {
   }
 };
 
-const clearImage = (filePath) => {
+/* const clearImage = (filePath) => {
   filePath = path.join(__dirname, "..", filePath);
   fs.unlink(filePath, (err) => {
     console.log(err);
   });
-};
+}; */
