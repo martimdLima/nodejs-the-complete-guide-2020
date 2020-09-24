@@ -42,19 +42,41 @@
 
 ### 17 - [Error handling](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/validation)
 
-### 18 [File Upload and Download]()
+### 18 - [File Upload and Download](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/file-upload-and-download)
 
-### 18 [Pagination]()
+### 19 - [Pagination](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/pagination)
 
-### 18 [Async Requests]()
+### 20 - [Async Requests](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/understanding-async-requests)
 
-### 18 [Payments]()
+### 21 - [Payments](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/adding-payments)
 
-### 18 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
+### 22 - [Working With Rest APIs](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/working-with-rest-apis)
+
+### 23 - [Understanding Async Await in Node.js](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/what-is-async-await)
+
+### 24 - [Understanding Websockets & Socket.io](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/websockets-and-socket.io)
+
+### 25 - [Working With GraphQL](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/working-with-graphql)
+
+### 26 - [Deploy the App]()
+
+### 27 - [Testing Node.js Applications]()
+
+### 28 - [Node.js as a Build Tool & Using npm]()
+
+### 29 - [Modern JavaScript & NodeJS]()
+
+### 30 - [NodeJS & TypeScript]()
+
+### 31 - [An Introduction to Deno]()
+
+### 32 - [Deno, CRUD & Databases (MongoDB)]()
+
+### 33 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
 <br>
 <br>
 
 ## Technologies Used: 
-**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator, multer, pdfkit, stripe**
+**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator, multer, pdfkit, stripe, jsonwebtoken, socket`.`io, socket.io-client, graphql, express-graphql**
 
