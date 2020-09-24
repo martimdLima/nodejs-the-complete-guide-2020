@@ -1,3 +1,12 @@
-# stripe
-https://stripe.com/docs/
+# helmet
+https://helmetjs.github.io/
+
+# compression
+https://github.com/expressjs/compression
+
+# morgan
+https://github.com/expressjs/morgan#readme
+
+# advanced/detailed logging approach
+https://blog.risingstack.com/node-js-logging-tutorial/
 

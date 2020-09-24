@@ -144,3 +144,9 @@ npm install --save socket.io-client
 ########################################
 
 - compression
+
+########################################
+## HTTP request logger middleware      #
+########################################
+
+- morgan

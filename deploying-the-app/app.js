@@ -1,5 +1,4 @@
-const MONGODB_URI =
-  `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.xmtoh.mongodb.net/${process.env.MONGODB_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.xmtoh.mongodb.net/${process.env.MONGODB_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -11,10 +10,17 @@ const flash = require("connect-flash");
 const multer = require("multer");
 const helmet = require("helmet");
 const compreesion = require("compression");
+const morgan = require("morgan");
+const fs = require("fs");
 
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const authRoutes = require("./routes/auth");
+
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, "access.log"),
+  { flags: "a" }
+);
 
 const User = require("./models/user");
 const errorController = require("./controllers/error");
@@ -50,16 +56,17 @@ app.set("views", "views");
 
 app.use(
   helmet.contentSecurityPolicy({
-      directives: {
-          'default-src': ["'self'"],
-          'script-src': ["'self'", "'unsafe-inline'", 'js.stripe.com'],
-          'style-src': ["'self'", "'unsafe-inline'", 'fonts.googleapis.com'],
-          'frame-src': ["'self'", 'js.stripe.com'],
-          'font-src': ["'self'", 'fonts.googleapis.com', 'fonts.gstatic.com']
-      },
+    directives: {
+      "default-src": ["'self'"],
+      "script-src": ["'self'", "'unsafe-inline'", "js.stripe.com"],
+      "style-src": ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],
+      "frame-src": ["'self'", "js.stripe.com"],
+      "font-src": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
+    },
   })
 );
 app.use(compreesion());
+app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
@@ -112,8 +119,6 @@ app.use(errorController.get404);
 
 // Central Error handling Middleware
 app.use((error, req, res, next) => {
-  // res.status(error.httpStatusCode).render(...);
-  //res.redirect("/500");
   res.status(500).render("500", {
     pageTitle: "Error!",
     path: "/500",
