@@ -9,6 +9,8 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 const flash = require("connect-flash");
 const multer = require("multer");
+const helmet = require("helmet");
+const compreesion = require("compression");
 
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
@@ -45,6 +47,19 @@ const fileFilter = (req, file, cb) => {
 
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+app.use(
+  helmet.contentSecurityPolicy({
+      directives: {
+          'default-src': ["'self'"],
+          'script-src': ["'self'", "'unsafe-inline'", 'js.stripe.com'],
+          'style-src': ["'self'", "'unsafe-inline'", 'fonts.googleapis.com'],
+          'frame-src': ["'self'", 'js.stripe.com'],
+          'font-src': ["'self'", 'fonts.googleapis.com', 'fonts.gstatic.com']
+      },
+  })
+);
+app.use(compreesion());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
