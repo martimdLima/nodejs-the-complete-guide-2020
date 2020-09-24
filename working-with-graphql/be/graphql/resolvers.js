@@ -75,6 +75,7 @@ module.exports = {
     return { token: token, userId: user._id.toString() };
   },
   createPost: async function ({ postInput }, req) {
+    
     if (!req.isAuth) {
       const error = new Error("Not Authenticated!");
       error.code = 401;
@@ -122,12 +123,12 @@ module.exports = {
     const createdPost = await post.save();
 
     user.posts.push(createdPost);
-
+    await user.save();
     return {
       ...createdPost._doc,
       _id: createdPost._id.toString(),
       createdAt: createdPost.createdAt.toISOString(),
-      updatedAt: createdPost.updatedAt.toISOString(),
+      updatedAt: createdPost.updatedAt.toISOString()
     };
   },
 };
