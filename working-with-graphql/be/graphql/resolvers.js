@@ -213,8 +213,7 @@ module.exports = {
       updatedAt: updatedPost.updatedAt.toISOString(),
     };
   },
-  deletePost: async function({id}, req) {
-    
+  deletePost: async function ({ id }, req) {
     if (!req.isAuth) {
       throwError(401, "Not Authenticated");
     }
@@ -239,5 +238,33 @@ module.exports = {
     await user.save();
 
     return true;
-  }
+  },
+  user: async function (args, req) {
+    if (!req.isAuth) {
+      throwError(401, "Not Authenticated");
+    }
+
+    const user = await User.findById(req.userId);
+
+    if (!user) {
+      throwError(404, "No user found!");
+    }
+
+    return { ...user._doc, _id: user._id.toString() };
+  },
+  updateStatus: async function ({ status }, req) {
+    if (!req.isAuth) {
+      throwError(401, "Not Authenticated");
+    }
+
+    const user = await User.findById(req.userId);
+
+    if (!user) {
+      throwError(404, "No user found!");
+    }
+
+    user.status = status;
+    await user.save();
+    return { ...user._doc, _id: user._id.toString() };
+  },
 };

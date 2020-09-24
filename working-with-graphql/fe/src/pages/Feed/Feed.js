@@ -22,19 +22,33 @@ class Feed extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8080/auth/status", {
+    const graphqlQuery = {
+      query: `
+        {
+          user {
+            status
+          }
+        }
+      `,
+    };
+
+    fetch("http://localhost:8080/graphql", {
+      method: "POST",
       headers: {
         Authorization: "Bearer " + this.props.token,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify(graphqlQuery),
     })
       .then((res) => {
-        if (res.status !== 200) {
-          throw new Error("Failed to fetch user status.");
-        }
         return res.json();
       })
       .then((resData) => {
-        this.setState({ status: resData.status });
+        if (resData.errors) {
+          throw new Error("Loading status failed!");
+        }
+
+        this.setState({ status: resData.data.user.status });
       })
       .catch(this.catchError);
 
@@ -105,23 +119,31 @@ class Feed extends Component {
 
   statusUpdateHandler = (event) => {
     event.preventDefault();
-    fetch("http://localhost:8080/auth/status", {
-      method: "PATCH",
+    const graphqlQuery = {
+      query: `
+        mutation {
+          updateStatus(status: "${this.state.status}") {
+            status
+          }
+        }
+      `,
+    };
+    fetch("http://localhost:8080/graphql", {
+      method: "POST",
       headers: {
         Authorization: "Bearer " + this.props.token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        status: this.state.status,
-      }),
+      body: JSON.stringify(graphqlQuery),
     })
       .then((res) => {
-        if (res.status !== 200 && res.status !== 201) {
-          throw new Error("Can't update status!");
-        }
         return res.json();
       })
       .then((resData) => {
+        if (resData.errors) {
+          throw new Error("Updating status failed!");
+        }
+
         console.log(resData);
       })
       .catch(this.catchError);
@@ -237,29 +259,29 @@ class Feed extends Component {
           createdAt: resData.data[resDataField].createdAt,
           imagePath: resData.data[resDataField].imageUrl,
         };
-        this.setState(prevState => {
+        this.setState((prevState) => {
           let updatedPosts = [...prevState.posts];
           let updatedTotalPosts = prevState.totalPosts;
           if (prevState.editPost) {
-              const postIndex = prevState.posts.findIndex(
-                  p => p._id === prevState.editPost._id
-              );
-              updatedPosts[postIndex] = post;
+            const postIndex = prevState.posts.findIndex(
+              (p) => p._id === prevState.editPost._id
+            );
+            updatedPosts[postIndex] = post;
           } else {
             updatedTotalPosts++;
-              if (prevState.posts.length >= 2) {
-                  updatedPosts.pop();
-              }
-              updatedPosts.unshift(post);
+            if (prevState.posts.length >= 2) {
+              updatedPosts.pop();
+            }
+            updatedPosts.unshift(post);
           }
           return {
-              posts: updatedPosts,
-              isEditing: false,
-              editPost: null,
-              editLoading: false,
-              totalPosts: updatedTotalPosts
+            posts: updatedPosts,
+            isEditing: false,
+            editPost: null,
+            editLoading: false,
+            totalPosts: updatedTotalPosts,
           };
-      });
+        });
       })
       .catch((err) => {
         console.log(err);

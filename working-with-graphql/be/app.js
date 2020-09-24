@@ -49,7 +49,7 @@ app.use((req, res, next) => {
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-  if(req.method === "OPTIONS") {
+  if (req.method === "OPTIONS") {
     return res.sendStatus(200);
   }
   next();
@@ -58,21 +58,23 @@ app.use((req, res, next) => {
 app.use(auth);
 
 app.put("/post-image", (req, res, next) => {
-
-  if(!req.isAuth) {
-    throw  new Error("Not Authenticated!");
+  if (!req.isAuth) {
+    throw new Error("Not Authenticated!");
   }
 
-  if(!req.file) {
-    return res.status(200).json({message: "No file provided! Please provide a file."});
+  if (!req.file) {
+    return res
+      .status(200)
+      .json({ message: "No file provided! Please provide a file." });
   }
 
-  if(req.body.oldPath) {
+  if (req.body.oldPath) {
     clearImage(req.body.oldPath);
   }
 
-  return res.status(201).json({message: "File stored.", filepath: req.file.path});
-
+  return res
+    .status(201)
+    .json({ message: "File stored.", filepath: req.file.path });
 });
 
 app.use(
