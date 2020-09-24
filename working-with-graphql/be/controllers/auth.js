@@ -1,11 +1,7 @@
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
-const {
-  nextError,
-  throwError,
-  authThrowError,
-} = require("../util/errorhandling");
+const { nextError, throwError } = require("../util/errorhandling");
 
 const User = require("../models/user");
 
@@ -13,7 +9,7 @@ exports.signup = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    authThrowError(errors, 422, "Validation Failed");
+    throwError(errors, 422, "Validation Failed");
   }
 
   const email = req.body.email;

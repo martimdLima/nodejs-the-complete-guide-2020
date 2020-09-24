@@ -1,4 +1,2 @@
 # GraphQL
-
-
-# express-graphQL
+https://graphql.org
