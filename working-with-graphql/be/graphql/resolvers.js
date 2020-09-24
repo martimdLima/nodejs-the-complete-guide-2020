@@ -3,6 +3,7 @@ const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
 const { resolverThrowError, throwError } = require("../util/errorhandling");
+const { clearImage } = require("../util/image");
 const User = require("../models/user");
 const Post = require("../models/post");
 
@@ -212,4 +213,31 @@ module.exports = {
       updatedAt: updatedPost.updatedAt.toISOString(),
     };
   },
+  deletePost: async function({id}, req) {
+    
+    if (!req.isAuth) {
+      throwError(401, "Not Authenticated");
+    }
+
+    const post = await Post.findById(id);
+
+    if (!post) {
+      throwError(401, "No posts found!");
+    }
+
+    if (post.creator.toString() !== req.userId.toString()) {
+      throwError(401, "Not Authorized!");
+    }
+
+    clearImage(post.imageUrl);
+
+    await Post.findByIdAndRemove(id);
+
+    const user = await User.findById(req.userId);
+
+    user.posts.pull(id);
+    await user.save();
+
+    return true;
+  }
 };
