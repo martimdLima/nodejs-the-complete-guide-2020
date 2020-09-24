@@ -237,24 +237,29 @@ class Feed extends Component {
           createdAt: resData.data[resDataField].createdAt,
           imagePath: resData.data[resDataField].imageUrl,
         };
-        this.setState((prevState) => {
+        this.setState(prevState => {
           let updatedPosts = [...prevState.posts];
+          let updatedTotalPosts = prevState.totalPosts;
           if (prevState.editPost) {
-            const postIndex = prevState.posts.findIndex(
-              (p) => p._id === prevState.editPost._id
-            );
-            updatedPosts[postIndex] = post;
+              const postIndex = prevState.posts.findIndex(
+                  p => p._id === prevState.editPost._id
+              );
+              updatedPosts[postIndex] = post;
           } else {
-            updatedPosts.pop();
-            updatedPosts.unshift(post);
+            updatedTotalPosts++;
+              if (prevState.posts.length >= 2) {
+                  updatedPosts.pop();
+              }
+              updatedPosts.unshift(post);
           }
           return {
-            posts: updatedPosts,
-            isEditing: false,
-            editPost: null,
-            editLoading: false,
+              posts: updatedPosts,
+              isEditing: false,
+              editPost: null,
+              editLoading: false,
+              totalPosts: updatedTotalPosts
           };
-        });
+      });
       })
       .catch((err) => {
         console.log(err);
