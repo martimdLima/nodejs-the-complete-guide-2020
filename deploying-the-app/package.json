@@ -1,0 +1,44 @@
+{
+  "name": "adding-payments",
+  "version": "1.0.0",
+  "description": "Mongoose is an Object Data Modeling (ODM) tool for MongoDB and Node.js. Mongoose regulates association between data, provides schema validation. Mongoose helps in making the connection between an object in code and establishes those objects in MongoDB.",
+  "main": "app.js",
+  "engines": {
+    "node": "14.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production MONGODB_USER=mdlima MONGODB_PASSWORD=Fp53UihfDIOC0o7a MONGODB_DEFAULT_DATABASE=shop STRIPE_KEY=sk_test_51HSRX4KSudKGzams6TjGr7hcKAQQJCEB0fQATwZ55JMqF8KBEjjoBwKNlyRGFXtH5fLVJ5zj9a6hanVSmoCCfy8X00WsNbFE5e node app.js",
+    "start-server": "node app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
+  },
+  "author": "Martim Lima",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "helmet": "^4.1.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.5",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.11",
+    "pdfkit": "^0.11.0",
+    "stripe": "^8.96.0"
+  }
+}

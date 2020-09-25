@@ -132,3 +132,21 @@ npm install --save socket.io-client
 
 - graphql
 - express-graphql
+
+########################################
+## Express.js security                 #
+########################################
+
+- helmet
+
+########################################
+## Express.js Compression              #
+########################################
+
+- compression
+
+########################################
+## HTTP request logger middleware      #
+########################################
+
+- morgan

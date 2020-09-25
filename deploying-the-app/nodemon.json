@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGODB_USER": "mdlima",
+        "MONGODB_PASSWORD": "Fp53UihfDIOC0o7a",
+        "MONGODB_DEFAULT_DATABASE": "shop",
+        "STRIPE_KEY": "sk_test_51HSRX4KSudKGzams6TjGr7hcKAQQJCEB0fQATwZ55JMqF8KBEjjoBwKNlyRGFXtH5fLVJ5zj9a6hanVSmoCCfy8X00WsNbFE5e"
+    }
+}
