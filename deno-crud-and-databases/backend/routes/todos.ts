@@ -1,16 +1,31 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
+import type { ObjectId } from "https://deno.land/x/mongo@v0.9.1/mod.ts";
+import { getDb } from "../helpers/db_client.ts";
 
 const router = new Router();
 
 interface Todo {
-  id: string;
+  id?: string;
+  text: string;
+}
+
+interface Test {
+  _id: {
+    $oid: string;
+  };
   text: string;
 }
 
 let todos: Todo[] = [];
 
-router.get("/todos", (ctx) => {
-  ctx.response.body = { todos: todos };
+router.get('/todos', async (ctx) => {
+  const todos = await getDb().collection<Test>('todos').find(); // { _id: ObjectId(), text: '...' }[]
+  const transformedTodos = todos.map(
+    (todo: { _id: ObjectId; text: string }) => {
+      return { id: todo._id.$oid, text: todo.text };
+    }
+  );
+  ctx.response.body = { todos: transformedTodos };
 });
 
 router.get("/todos/:todoId", async (ctx) => {
@@ -30,12 +45,13 @@ router.post("/todos", async (ctx) => {
   const data = await ctx.request.body().value;
 
   const newTodo: Todo = {
-    id: new Date().toISOString(),
-
+    //id: new Date().toISOString(),
     text: data.text,
   };
 
-  todos.push(newTodo);
+  const id = await getDb().collection("todos").insertOne(newTodo);
+
+  newTodo.id = id.$oid;
 
   ctx.response.body = {
     message: "Created dummy todo!",
