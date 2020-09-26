@@ -2,8 +2,15 @@ const num1Element = document.getElementById("num1") as HTMLInputElement;
 const num2Element = document.getElementById("num2") as HTMLInputElement;
 const buttonElement = document.querySelector("button")!;
 
+type NumOrString = number | string;
+type Result = { val: number; timestamp: Date };
 
-function sum(num1: number | string, num2: number | string) {
+interface resultObj {
+  val: number,
+  timestamp: Date
+}
+
+function sum(num1: NumOrString, num2: NumOrString) {
   if (typeof num1 === "number" && typeof num2 === "number") {
     return num1 + num2;
   } else if (typeof num1 === "string" && typeof num2 === "string") {
@@ -13,7 +20,7 @@ function sum(num1: number | string, num2: number | string) {
   }
 }
 
-function printResult(resultObj: { val: number; timestamp: Date }) {
+function printResult(resultObj: Result) {
   console.log(resultObj.val);
 }
 
