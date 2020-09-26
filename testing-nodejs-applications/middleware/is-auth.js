@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     const authHeader = req.get("Authorization");
 
     if(!authHeader) {
-        throwError(401, "Not Authenticated");
+        throwError(401, "Not Authenticated!");
     }
 
     const token = authHeader.split(" ")[1];
@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
     }
 
     if(!decodedToken) {
-        throwError(401, "Not Authenticated");
+        throwError(401, "Not Authenticated!");
     }
 
     req.userId = decodedToken.userId;
