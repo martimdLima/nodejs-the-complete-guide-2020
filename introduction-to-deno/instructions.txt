@@ -1,0 +1,16 @@
+# run Deno
+-> deno app.js
+
+# run Deno with permission to read/write
+-> deno --read-allow app.js
+-> deno --write-allow app.js
+
+# run Deno with permission to read/write to specfic files
+-> deno --read-allow=file.txt,... app.js
+-> deno --write-allow=file.txt,... app.js
+
+# run Deno with network permission
+-> deno --allow-net app.js
+
+# force Deno to re-fetch the remote files
+-> deno run --reload app.ts

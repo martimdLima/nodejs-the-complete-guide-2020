@@ -2,16 +2,17 @@
 # [Installation routine]:              #
 ########################################
 
-# Traditional Server
+# Node Server-side Rendered Views
 npm install nodemon --save-dev
 npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer express-validator multer pdfkit stripe body-parser
 
-# REST API Server
-[backend]
+# Node REST API Server
+
+## backend
 npm install nodemon --save-dev
 npm install --save express body-parser express-validator mongoose multer bcryptjs jsonwebtoken socket.io
 
-[frontend]
+## frontend
 npm install --save socket.io-client
 
 ########################################
