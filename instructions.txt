@@ -3,12 +3,10 @@
 ########################################
 
 # Traditional Server
-npm init
 npm install nodemon --save-dev
 npm install --save express ejs mongodb mongoose express-session connect-mongodb-session bcryptjs csurf connect-flash nodemailer express-validator multer pdfkit stripe body-parser
 
 # REST API Server
-npm init
 [backend]
 npm install nodemon --save-dev
 npm install --save express body-parser express-validator mongoose multer bcryptjs jsonwebtoken socket.io
@@ -150,3 +148,11 @@ npm install --save socket.io-client
 ########################################
 
 - morgan
+
+########################################
+## Automated Tests                     #
+########################################
+
+- mocha
+- chai
+- sinon

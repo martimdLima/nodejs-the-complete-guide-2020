@@ -1,0 +1,12 @@
+# mocha
+https://mochajs.org/
+
+# chai
+https://www.chaijs.com/
+https://www.chaijs.com/api/bdd/
+https://www.chaijs.com/api/assert/
+
+
+# sinon
+https://sinonjs.org/
+https://sinonjs.org/releases/v9.0.3/
