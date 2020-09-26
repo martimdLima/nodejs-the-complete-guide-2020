@@ -7,7 +7,31 @@ const MONGODB_URI =
 const User = require("../models/user");
 const AuthController = require("../controllers/auth");
 
-describe("Auth Controller - Login", function () {
+describe("Auth Controller", function () {
+  before(function (done) {
+    mongoose
+      .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then((result) => {
+        const user = new User({
+          email: "dummy@dummy.com",
+          password: "dummy",
+          name: "dummy",
+          posts: [],
+          _id: "9c60f11c01f9042b0607a316",
+        });
+
+        return user.save();
+      })
+      .then(() => {
+        done();
+      });
+  });
+
+  /*  
+ // runs before every test
+ beforeEach(function() {}); 
+ */
+
   it("Should throw an error if acessing the database fails", function (done) {
     sinon.stub(User, "findOne");
 
@@ -30,45 +54,38 @@ describe("Auth Controller - Login", function () {
   });
 
   it("should send a response with a valid user status for an existing user", function (done) {
-    mongoose
-      .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-      .then((result) => {
-        const user = new User({
-          email: "dummy@dummy.com",
-          password: "dummy",
-          name: "dummy",
-          posts: [],
-          _id: "9c60f11c01f9042b0607a316",
-        });
+    const req = { userId: "9c60f11c01f9042b0607a316" };
+    const res = {
+      statusCode: 500,
+      userStatus: null,
+      status: function (code) {
+        this.statusCode = code;
+        return this;
+      },
+      json: function (data) {
+        this.userStatus = data.status;
+      },
+    };
 
-        return user.save();
+    AuthController.getUserStatus(req, res, () => {}).then(() => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(res.userStatus).to.be.equal("this is a new post");
+      done();
+    });
+  });
+
+  after(function (done) {
+    User.deleteMany({})
+      .then(() => {
+        return mongoose.disconnect();
       })
       .then(() => {
-        const req = { userId: "9c60f11c01f9042b0607a316" };
-        const res = {
-          statusCode: 500,
-          userStatus: null,
-          status: function (code) {
-            this.statusCode = code;
-            return this;
-          },
-          json: function (data) {
-            this.userStatus = data.status;
-          },
-        };
-
-        AuthController.getUserStatus(req, res, () => {}).then(() => {
-          expect(res.statusCode).to.be.equal(200);
-          expect(res.userStatus).to.be.equal("this is a new post");
-          User.deleteMany({})
-            .then(() => {
-              return mongoose.disconnect();
-            })
-            .then(() => {
-              done();
-            });
-        });
-      })
-      .catch((err) => console.log(err));
+        done();
+      });
   });
+
+  /*  
+ // runs after every test
+ afterEach(function() {}); 
+ */
 });
