@@ -38,13 +38,13 @@ describe("Auth Controller - Login", function () {
           password: "dummy",
           name: "dummy",
           posts: [],
-          _id: "9c60f11c01f4752b0607a316",
+          _id: "9c60f11c01f9042b0607a316",
         });
 
         return user.save();
       })
       .then(() => {
-        const req = { userId: "9c60f11c01f4752b0607a316" };
+        const req = { userId: "9c60f11c01f9042b0607a316" };
         const res = {
           statusCode: 500,
           userStatus: null,
@@ -58,10 +58,16 @@ describe("Auth Controller - Login", function () {
         };
 
         AuthController.getUserStatus(req, res, () => {}).then(() => {
-            expect(res.statusCode).to.be.equal(200);
-            expect(res.userStatus).to.be.equal("this is a new post");
-            done();
-        })
+          expect(res.statusCode).to.be.equal(200);
+          expect(res.userStatus).to.be.equal("this is a new post");
+          User.deleteMany({})
+            .then(() => {
+              return mongoose.disconnect();
+            })
+            .then(() => {
+              done();
+            });
+        });
       })
       .catch((err) => console.log(err));
   });
