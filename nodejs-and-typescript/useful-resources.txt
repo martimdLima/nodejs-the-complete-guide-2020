@@ -1,0 +1,2 @@
+# more complex Node Typescript starter project
+https://github.com/Microsoft/TypeScript-Node-Starter#typescript-node-starter
