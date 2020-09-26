@@ -9,7 +9,7 @@ interface Todo {
 
 let todos: Todo[] = [];
 
-router.get("/todos/", (ctx) => {
+router.get("/todos", (ctx) => {
   ctx.response.body = { todos: todos };
 });
 
@@ -27,10 +27,11 @@ router.get("/todos/:todoId", async (ctx) => {
 
 router.post("/todos", async (ctx) => {
   const result = ctx.request.body();
-  const data = await result.value;
+  const data = await ctx.request.body().value;
 
   const newTodo: Todo = {
     id: new Date().toISOString(),
+
     text: data.text,
   };
 
