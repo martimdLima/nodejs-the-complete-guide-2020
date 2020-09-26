@@ -10,6 +10,9 @@ interface resultObj {
   timestamp: Date
 }
 
+const numResults: Array<number> = [];
+const textResults: string[] = [];  
+
 function sum(num1: NumOrString, num2: NumOrString) {
   if (typeof num1 === "number" && typeof num2 === "number") {
     return num1 + num2;
@@ -26,9 +29,6 @@ function printResult(resultObj: Result) {
 
 buttonElement.addEventListener("click", () => {
 
-  const numResults: number[] = [];
-  const textResults: string[] = [];  
-
   const num1 = +num1Element.value;
   const num2 = +num2Element.value;
 
@@ -44,3 +44,13 @@ buttonElement.addEventListener("click", () => {
 });
 
 //console.log(sum(1, 6));
+
+const myPromise = new Promise<string>((resolve, reject) => {
+  setTimeout(() => {
+    resolve('It worked!');
+  }, 1000);
+});
+
+myPromise.then((result) => {
+  console.log(result.split('w'));
+});
