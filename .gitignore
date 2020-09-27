@@ -4,5 +4,7 @@
 **/build
 */package-lock.json
 **/package-lock.json
+*/server.cert
+*/server.key
 dirloc.txt
 .vscode/*
