@@ -58,25 +58,23 @@
 
 ### 25 - [Working With GraphQL](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/working-with-graphql)
 
-### 26 - [Deploy the App]()
+### 26 - [Deploy the App](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/deploying-the-app)
 
-### 27 - [Testing Node.js Applications]()
+### 27 - [Testing Node.js Applications](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/testing-nodejs-applications)
 
-### 28 - [Node.js as a Build Tool & Using npm]()
+### 28 - [Modern JavaScript & NodeJS](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/modern-javascript-and-nodejs)
 
-### 29 - [Modern JavaScript & NodeJS]()
+### 29 - [NodeJS & TypeScript](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/nodejs-and-typescript)
 
-### 30 - [NodeJS & TypeScript]()
+### 30 - [An Introduction to Deno](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/introduction-to-deno)
 
-### 31 - [An Introduction to Deno]()
+### 31 - [Deno, CRUD & Databases (MongoDB)](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/master/deno-crud-and-databases)
 
-### 32 - [Deno, CRUD & Databases (MongoDB)]()
-
-### 33 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
+### 32 - [Course Projects](https://gitlab.com/mdLima0/nodejs-the-complete-guide-2020/-/tree/express-js/assignments)
   
 <br>
 <br>
 
 ## Technologies Used: 
-**Node.js, Javascript, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator, multer, pdfkit, stripe, jsonwebtoken, socket`.`io, socket.io-client, graphql, express-graphql**
+**Node.js, Javascript, Typescript, HTML, CSS, Express.js, Nodemon, SQL, MariaDB, MariaDb/Node.Js Connector, Pug, Express-Handlebars, Ejs, Sequelize, NoSQL, MongoDB, Mongoose, express-session, connect-mongodb-session, bcryptjs, csurf, connect-flash, nodemailer, express-validator, multer, pdfkit, stripe, jsonwebtoken, socket`.`io, socket.io-client, graphql, express-graphql, helmet, compression, morgan, mocha, chai, sinon, deno**
 
