@@ -13,16 +13,6 @@ export function connect() {
   db = client.database("todos");
 }
 
-/* // Defining schema interface
-interface UserSchema {
-  _id: { $oid: string };
-  username: string;
-  password: string;
-}
- */
-
 export function getDb() {
   return db;
 }
-
-//const users = db.collection<UserSchema>("users");

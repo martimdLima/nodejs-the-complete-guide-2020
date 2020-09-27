@@ -7,10 +7,10 @@ connect();
 
 const app = new Application();
 
-app.use(async (ctx, next) => {
+/* app.use(async (ctx, next) => {
   console.log("Middleware!");
   await next();
-});
+}); */
 
 app.use(async (ctx, next) => {
   ctx.response.headers.set("Access-Control-Allow-Origin", "*");

@@ -1,5 +1,6 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
-import type { ObjectId } from "https://deno.land/x/mongo@v0.9.1/mod.ts";
+import { ObjectId } from "https://deno.land/x/mongo@v0.12.1/mod.ts";
+//import { ObjectId } from "https://deno.land/x/mongo@v0.12.1/ts/types.ts";
 import { getDb } from "../helpers/db_client.ts";
 
 const router = new Router();
@@ -9,7 +10,7 @@ interface Todo {
   text: string;
 }
 
-interface Test {
+interface TodoItem {
   _id: {
     $oid: string;
   };
@@ -18,12 +19,12 @@ interface Test {
 
 let todos: Todo[] = [];
 
-router.get('/todos', async (ctx) => {
-  const todos = await getDb().collection<Test>('todos').find(); // { _id: ObjectId(), text: '...' }[]
+router.get("/todos", async (ctx) => {
+  const todos = await getDb().collection<TodoItem>("todos").find(); // { _id: ObjectId(), text: '...' }[]
   const transformedTodos = todos.map(
     (todo: { _id: ObjectId; text: string }) => {
       return { id: todo._id.$oid, text: todo.text };
-    }
+    },
   );
   ctx.response.body = { todos: transformedTodos };
 });
@@ -59,23 +60,28 @@ router.post("/todos", async (ctx) => {
   };
 });
 
+// const tid = await ctx.params.todoId!;
+// const result = ctx.request.body();
+// const data = await result.value;
+
 router.put("/todos/:todoId", async (ctx) => {
-  const tid = ctx.params.todoId;
+  const tid = ctx.params.todoId!;
   const result = ctx.request.body();
   const data = await result.value;
+  const oid = ObjectId(tid);
 
-  const todoIndex = todos.findIndex((todo) => {
-    return todo.id === tid;
-  });
+  await getDb()
+    .collection("todos")
+    .updateOne({ _id: oid }, { $set: { text: data.text } });
 
-  todos[todoIndex] = { id: todos[todoIndex].id, text: data.text };
   ctx.response.body = { message: "Updated todo" };
 });
 
 router.delete("/todos/:todoId", async (ctx) => {
-  const tid = ctx.params.todoId;
+  const tid = ctx.params.todoId!;
+  const oid = ObjectId(tid);
 
-  todos = todos.filter((todo) => todo.id !== tid);
+  await getDb().collection("todos").deleteOne({ _id: oid });
 
   ctx.response.body = { message: "Deleted todo" };
 });
