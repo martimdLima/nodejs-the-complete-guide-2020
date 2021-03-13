@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-13 sáb 00:50 -->
+<!-- 2021-03-13 sáb 01:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>React - The Complete Guide</title>
@@ -229,27 +229,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga311097">What is Node.js?</a></li>
-<li><a href="#orgc51ee9a">Why Node.js?</a></li>
-<li><a href="#orgbce7d82">Parts of Node.js</a></li>
-<li><a href="#org8dfd39f">Modules</a></li>
-<li><a href="#org94205de">Console</a></li>
-<li><a href="#orga1c3c58">Cluster</a></li>
-<li><a href="#org8f6b467">Global</a></li>
-<li><a href="#org3e0d404">Error Handling</a></li>
-<li><a href="#org45e87e3">Streaming</a></li>
-<li><a href="#orgd8913db">Buffer</a></li>
-<li><a href="#org10f3c3e">Domain</a></li>
-<li><a href="#orgda1b137">DNS</a></li>
-<li><a href="#org7e64f3b">Debugger</a></li>
-<li><a href="#org771c91b">Node.js Express Framework</a></li>
-<li><a href="#org0279b2d">Project Modules &amp; Services</a>
+<li><a href="#org18ce126">What is Node.js?</a></li>
+<li><a href="#orgc52b23c">Why Node.js?</a></li>
+<li><a href="#org8fa0edb">Parts of Node.js</a></li>
+<li><a href="#org3421b9c">Modules</a></li>
+<li><a href="#orgdfaa2d0">Console</a></li>
+<li><a href="#org79aa0cd">Cluster</a></li>
+<li><a href="#orgfe9a7d4">Global</a></li>
+<li><a href="#org71774f5">Error Handling</a></li>
+<li><a href="#org1b566e0">Streaming</a></li>
+<li><a href="#orgd46e40f">Buffer</a></li>
+<li><a href="#org12fb9f6">Domain</a></li>
+<li><a href="#org6e20603">DNS</a></li>
+<li><a href="#orgf75e90e">Debugger</a></li>
+<li><a href="#orgaa47ce5">Node.js Express Framework</a></li>
+<li><a href="#orgf22f2ad">Project Modules &amp; Services</a>
 <ul>
-<li><a href="#org4a8dc16">Modules used:</a></li>
-<li><a href="#org9f7ff79">Services used:</a></li>
+<li><a href="#orgad89efc">Modules used:</a></li>
+<li><a href="#org85c3b00">Services used:</a></li>
 </ul>
 </li>
-<li><a href="#org747e82b">Useful Resources &amp; Links</a></li>
+<li><a href="#orgaf311b1">Useful Resources &amp; Links</a></li>
 </ul>
 </div>
 </div>
@@ -263,9 +263,9 @@ Node.js is an extremely powerful JavaScript-based platform used to develop onlin
 Node.js is open-source and completely free, used by thousands of developers around the world. It brings plenty of advantages to the table, making it a better choice than other server-side platforms like Java or PHP.
 </p>
 
-<div id="outline-container-orga311097" class="outline-2">
-<h2 id="orga311097">What is Node.js?</h2>
-<div class="outline-text-2" id="text-orga311097">
+<div id="outline-container-org18ce126" class="outline-2">
+<h2 id="org18ce126">What is Node.js?</h2>
+<div class="outline-text-2" id="text-org18ce126">
 <p>
 Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client&rsquo;s browser.
 </p>
@@ -273,9 +273,9 @@ Node.js is an open-source, cross-platform JavaScript runtime environment and lib
 </div>
 
 
-<div id="outline-container-orgc51ee9a" class="outline-2">
-<h2 id="orgc51ee9a">Why Node.js?</h2>
-<div class="outline-text-2" id="text-orgc51ee9a">
+<div id="outline-container-orgc52b23c" class="outline-2">
+<h2 id="orgc52b23c">Why Node.js?</h2>
+<div class="outline-text-2" id="text-orgc52b23c">
 <p>
 Node.js has become the de facto tool for developing server-side and network applications. Here is why:
 </p>
@@ -292,11 +292,11 @@ Node.js has become the de facto tool for developing server-side and network appl
 </div>
 
 
-<div id="outline-container-orgbce7d82" class="outline-2">
-<h2 id="orgbce7d82">Parts of Node.js</h2>
-<div class="outline-text-2" id="text-orgbce7d82">
+<div id="outline-container-org8fa0edb" class="outline-2">
+<h2 id="org8fa0edb">Parts of Node.js</h2>
+<div class="outline-text-2" id="text-org8fa0edb">
 
-<div id="org8ce6948" class="figure">
+<div id="orgef6b993" class="figure">
 <p><img src="./resources/imgs/parts-of-nodejs.png" alt="components" width="50%" height="50%" title="parts of node.js" align="center" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Parts of Node.js</p>
@@ -305,9 +305,9 @@ Node.js has become the de facto tool for developing server-side and network appl
 </div>
 
 
-<div id="outline-container-org8dfd39f" class="outline-2">
-<h2 id="org8dfd39f">Modules</h2>
-<div class="outline-text-2" id="text-org8dfd39f">
+<div id="outline-container-org3421b9c" class="outline-2">
+<h2 id="org3421b9c">Modules</h2>
+<div class="outline-text-2" id="text-org3421b9c">
 <p>
 Modules are like JavaScript libraries that can be used in a Node.js application to include a set of functions. In order to include a module in a Node.js application, use the require() function with the parenthesis containing the name of the module.
 </p>
@@ -316,7 +316,7 @@ Modules are like JavaScript libraries that can be used in a Node.js application 
 Node.js has many modules that provide the basic functionality needed for a web application. Some of them are mentioned in this table:
 </p>
 
-<div id="orgba358df" class="figure">
+<div id="orge7d039b" class="figure">
 <p><img src="./resources/imgs/nodejs-module-table.png" alt="components" width="50%" height="50%" title="node.js modules table" align="center" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Node.js Modules Table</p>
@@ -325,18 +325,18 @@ Node.js has many modules that provide the basic functionality needed for a web a
 </div>
 
 
-<div id="outline-container-org94205de" class="outline-2">
-<h2 id="org94205de">Console</h2>
-<div class="outline-text-2" id="text-org94205de">
+<div id="outline-container-orgdfaa2d0" class="outline-2">
+<h2 id="orgdfaa2d0">Console</h2>
+<div class="outline-text-2" id="text-orgdfaa2d0">
 <p>
 The console is a module that provides a method for debugging that is similar to the basic JavaScript console provided by internet browsers. It prints messages to stdout and stderr.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga1c3c58" class="outline-2">
-<h2 id="orga1c3c58">Cluster</h2>
-<div class="outline-text-2" id="text-orga1c3c58">
+<div id="outline-container-org79aa0cd" class="outline-2">
+<h2 id="org79aa0cd">Cluster</h2>
+<div class="outline-text-2" id="text-org79aa0cd">
 <p>
 Node.js is built-on on the concept of single-threaded programming. Cluster is a module that allows multi-threading by creating child processes that share the same server port and run simultaneously.
 </p>
@@ -345,7 +345,7 @@ Node.js is built-on on the concept of single-threaded programming. Cluster is a 
 A cluster can be added to an application in the following way:
 </p>
 
-<div id="orgf635508" class="figure">
+<div id="orgb80823e" class="figure">
 <p><img src="./resources/imgs/cluster-in-nodejs.png" alt="components" width="50%" height="50%" title="add a cluster in nodejs" align="center" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Add a cluster in Node.js</p>
@@ -354,14 +354,14 @@ A cluster can be added to an application in the following way:
 </div>
 
 
-<div id="outline-container-org8f6b467" class="outline-2">
-<h2 id="org8f6b467">Global</h2>
-<div class="outline-text-2" id="text-org8f6b467">
+<div id="outline-container-orgfe9a7d4" class="outline-2">
+<h2 id="orgfe9a7d4">Global</h2>
+<div class="outline-text-2" id="text-orgfe9a7d4">
 <p>
 Global objects in Node.js are available in all modules. These objects are functions, modules, strings, etc. Some Node.js global objects are mentioned in the table below:
 </p>
 
-<div id="org08a72ab" class="figure">
+<div id="org5c8d22d" class="figure">
 <p><img src="./resources/imgs/global-objects-table.png" alt="components" width="50%" height="50%" title="global objects table in nodejs" align="center" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Global objects table</p>
@@ -370,14 +370,14 @@ Global objects in Node.js are available in all modules. These objects are functi
 </div>
 
 
-<div id="outline-container-org3e0d404" class="outline-2">
-<h2 id="org3e0d404">Error Handling</h2>
-<div class="outline-text-2" id="text-org3e0d404">
+<div id="outline-container-org71774f5" class="outline-2">
+<h2 id="org71774f5">Error Handling</h2>
+<div class="outline-text-2" id="text-org71774f5">
 <p>
 Node.js applications experience four types of errors.
 </p>
 
-<div id="org335cb08" class="figure">
+<div id="orgc7422a9" class="figure">
 <p><img src="./resources/imgs/nodejs-errors.png" alt="components" width="50%" height="50%" title="nodejs errors" align="center" />
 </p>
 <p><span class="figure-number">Figure 5: </span>Node.js Errors</p>
@@ -389,9 +389,9 @@ Errors in Node.js are handled through exceptions. For example, let&rsquo;s handl
 </div>
 </div>
 
-<div id="outline-container-org45e87e3" class="outline-2">
-<h2 id="org45e87e3">Streaming</h2>
-<div class="outline-text-2" id="text-org45e87e3">
+<div id="outline-container-org1b566e0" class="outline-2">
+<h2 id="org1b566e0">Streaming</h2>
+<div class="outline-text-2" id="text-org1b566e0">
 <p>
 Streams are the objects that let you read data or write data continuously. There are four types of streams:
 </p>
@@ -405,18 +405,18 @@ Streams are the objects that let you read data or write data continuously. There
 </div>
 
 
-<div id="outline-container-orgd8913db" class="outline-2">
-<h2 id="orgd8913db">Buffer</h2>
-<div class="outline-text-2" id="text-orgd8913db">
+<div id="outline-container-orgd46e40f" class="outline-2">
+<h2 id="orgd46e40f">Buffer</h2>
+<div class="outline-text-2" id="text-orgd46e40f">
 <p>
 Buffer is a module that allows the handling of streams that contain only binary data.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org10f3c3e" class="outline-2">
-<h2 id="org10f3c3e">Domain</h2>
-<div class="outline-text-2" id="text-org10f3c3e">
+<div id="outline-container-org12fb9f6" class="outline-2">
+<h2 id="org12fb9f6">Domain</h2>
+<div class="outline-text-2" id="text-org12fb9f6">
 <p>
 The domain module intercepts errors that remain unhandled. Two methods are used for intercepting these errors:
 </p>
@@ -428,9 +428,9 @@ The domain module intercepts errors that remain unhandled. Two methods are used 
 </div>
 </div>
 
-<div id="outline-container-orgda1b137" class="outline-2">
-<h2 id="orgda1b137">DNS</h2>
-<div class="outline-text-2" id="text-orgda1b137">
+<div id="outline-container-org6e20603" class="outline-2">
+<h2 id="org6e20603">DNS</h2>
+<div class="outline-text-2" id="text-org6e20603">
 <p>
 DNS module is used to connect to a DNS server and perform name resolution by using the resolve() method.
 </p>
@@ -441,9 +441,9 @@ DNS module is also used for performing name resolution without a network communi
 </div>
 </div>
 
-<div id="outline-container-org7e64f3b" class="outline-2">
-<h2 id="org7e64f3b">Debugger</h2>
-<div class="outline-text-2" id="text-org7e64f3b">
+<div id="outline-container-orgf75e90e" class="outline-2">
+<h2 id="orgf75e90e">Debugger</h2>
+<div class="outline-text-2" id="text-orgf75e90e">
 <p>
 Node.js includes a debugging utility that can be accessed by a built-in debugging client. Node.js debugger is not feature-packed but supports the simple inspection of code. The debugger can be used in the terminal by using the &rsquo;inspect&rsquo; keyword before the name of the JavaScript file.
 </p>
@@ -451,9 +451,9 @@ Node.js includes a debugging utility that can be accessed by a built-in debuggin
 </div>
 
 
-<div id="outline-container-org771c91b" class="outline-2">
-<h2 id="org771c91b">Node.js Express Framework</h2>
-<div class="outline-text-2" id="text-org771c91b">
+<div id="outline-container-orgaa47ce5" class="outline-2">
+<h2 id="orgaa47ce5">Node.js Express Framework</h2>
+<div class="outline-text-2" id="text-orgaa47ce5">
 <p>
 Express is a flexible Node.js web application framework that provides a wide set of features to develop both web and mobile applications. It&rsquo;s a layer built on the top of the Node.js that helps manage a server and routes.
 </p>
@@ -471,14 +471,14 @@ Now look at some of the core features of the Express framework:
 </div>
 
 
-<div id="outline-container-org0279b2d" class="outline-2">
-<h2 id="org0279b2d">Project Modules &amp; Services</h2>
-<div class="outline-text-2" id="text-org0279b2d">
+<div id="outline-container-orgf22f2ad" class="outline-2">
+<h2 id="orgf22f2ad">Project Modules &amp; Services</h2>
+<div class="outline-text-2" id="text-orgf22f2ad">
 </div>
 
-<div id="outline-container-org4a8dc16" class="outline-3">
-<h3 id="org4a8dc16">Modules used:</h3>
-<div class="outline-text-3" id="text-org4a8dc16">
+<div id="outline-container-orgad89efc" class="outline-3">
+<h3 id="orgad89efc">Modules used:</h3>
+<div class="outline-text-3" id="text-orgad89efc">
 <ul class="org-ul">
 <li>Node.js,</li>
 <li>Javascript,</li>
@@ -523,15 +523,15 @@ Now look at some of the core features of the Express framework:
 </div>
 </div>
 
-<div id="outline-container-org9f7ff79" class="outline-3">
-<h3 id="org9f7ff79">Services used:</h3>
+<div id="outline-container-org85c3b00" class="outline-3">
+<h3 id="org85c3b00">Services used:</h3>
 </div>
 </div>
 
 
-<div id="outline-container-org747e82b" class="outline-2">
-<h2 id="org747e82b">Useful Resources &amp; Links</h2>
-<div class="outline-text-2" id="text-org747e82b">
+<div id="outline-container-orgaf311b1" class="outline-2">
+<h2 id="orgaf311b1">Useful Resources &amp; Links</h2>
+<div class="outline-text-2" id="text-orgaf311b1">
 <ul class="org-ul">
 <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">MDN JavaScript Tutorial</a></li>
 
@@ -615,11 +615,11 @@ Now look at some of the core features of the Express framework:
 
 <li><a href="https://medium.com/@baphemot/understanding-react-deployment-5a717d4378fd">Deploying SPAs (like our React App)</a></li>
 
-<li><a href="https://mochajs.org/">https://mochajs.org/</a>[Mocha]</li>
+<li><a href="https://mochajs.org/">Mocha</a></li>
 
-<li><a href="https://www.chaijs.com/">https://www.chaijs.com/</a>[Chai]</li>
+<li><a href="https://www.chaijs.com/">Chai</a></li>
 
-<li><a href="https://sinonjs.org/">https://sinonjs.org/</a>[Sinon]</li>
+<li><a href="https://sinonjs.org/">Sinon</a></li>
 
 <li><a href="https://docs.npmjs.com/">Official npm Docs</a></li>
 
@@ -633,7 +633,7 @@ Now look at some of the core features of the Express framework:
 <div id="postamble" class="status">
 <p class="date">Date: 10-10-2020</p>
 <p class="author">Author: Martim Lima</p>
-<p class="date">Created: 2021-03-13 sáb 00:50</p>
+<p class="date">Created: 2021-03-13 sáb 01:01</p>
 </div>
 </body>
 </html>

@@ -1,21 +1,21 @@
-- [What is Node.js?](#org33aa303)
-- [Why Node.js?](#org5738103)
-- [Parts of Node.js](#orge6537fe)
-- [Modules](#org2341c6e)
-- [Console](#org3cbe5e7)
-- [Cluster](#orgc759605)
-- [Global](#org7cef7f1)
-- [Error Handling](#org4d3cc31)
-- [Streaming](#orgecf3cd3)
-- [Buffer](#orgd3011dd)
-- [Domain](#orgaf2b8f2)
-- [DNS](#org257679e)
-- [Debugger](#orgb0516f1)
-- [Node.js Express Framework](#orgfd02639)
-- [Project Modules & Services](#orgcc56fcc)
-  - [Modules used:](#orga8d48e0)
-  - [Services used:](#orge3c2430)
-- [Useful Resources & Links](#orge8f1a5d)
+- [What is Node.js?](#org0723337)
+- [Why Node.js?](#orgc888be2)
+- [Parts of Node.js](#orgffe6619)
+- [Modules](#orgdb6f7d9)
+- [Console](#org7e897cf)
+- [Cluster](#org32f507f)
+- [Global](#org6accabd)
+- [Error Handling](#orgc5a825a)
+- [Streaming](#orge02e74f)
+- [Buffer](#orgc4d5323)
+- [Domain](#org9d8d45d)
+- [DNS](#org999cba8)
+- [Debugger](#org38debcd)
+- [Node.js Express Framework](#org2ccbb18)
+- [Project Modules & Services](#org65a5726)
+  - [Modules used:](#orga1d1537)
+  - [Services used:](#orgef54006)
+- [Useful Resources & Links](#org9718bcb)
 
 ---
 
@@ -24,14 +24,14 @@ Node.js is an extremely powerful JavaScript-based platform used to develop onlin
 Node.js is open-source and completely free, used by thousands of developers around the world. It brings plenty of advantages to the table, making it a better choice than other server-side platforms like Java or PHP.
 
 
-<a id="org33aa303"></a>
+<a id="org0723337"></a>
 
 # What is Node.js?
 
 Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client&rsquo;s browser.
 
 
-<a id="org5738103"></a>
+<a id="orgc888be2"></a>
 
 # Why Node.js?
 
@@ -45,14 +45,14 @@ Node.js has become the de facto tool for developing server-side and network appl
 6.  **Highly scalable**: Node.js server responds in a non-blocking way, making it highly scalable in contrast with traditional servers, which create limited threads to handle requests.
 
 
-<a id="orge6537fe"></a>
+<a id="orgffe6619"></a>
 
 # Parts of Node.js
 
 ![img](./resources/imgs/parts-of-nodejs.png "Parts of Node.js")
 
 
-<a id="org2341c6e"></a>
+<a id="orgdb6f7d9"></a>
 
 # Modules
 
@@ -63,14 +63,14 @@ Node.js has many modules that provide the basic functionality needed for a web a
 ![img](./resources/imgs/nodejs-module-table.png "Node.js Modules Table")
 
 
-<a id="org3cbe5e7"></a>
+<a id="org7e897cf"></a>
 
 # Console
 
 The console is a module that provides a method for debugging that is similar to the basic JavaScript console provided by internet browsers. It prints messages to stdout and stderr.
 
 
-<a id="orgc759605"></a>
+<a id="org32f507f"></a>
 
 # Cluster
 
@@ -81,7 +81,7 @@ A cluster can be added to an application in the following way:
 ![img](./resources/imgs/cluster-in-nodejs.png "Add a cluster in Node.js")
 
 
-<a id="org7cef7f1"></a>
+<a id="org6accabd"></a>
 
 # Global
 
@@ -90,7 +90,7 @@ Global objects in Node.js are available in all modules. These objects are functi
 ![img](./resources/imgs/global-objects-table.png "Global objects table")
 
 
-<a id="org4d3cc31"></a>
+<a id="orgc5a825a"></a>
 
 # Error Handling
 
@@ -101,7 +101,7 @@ Node.js applications experience four types of errors.
 Errors in Node.js are handled through exceptions. For example, let&rsquo;s handle the error that would occur when we divide a number by zero. This error would crash the Node.js application, so we should handle this error to continue with the normal execution of the application.
 
 
-<a id="orgecf3cd3"></a>
+<a id="orge02e74f"></a>
 
 # Streaming
 
@@ -113,14 +113,14 @@ Streams are the objects that let you read data or write data continuously. There
 4.  **Transform**: Streams that can manipulate the data while it is being read or written
 
 
-<a id="orgd3011dd"></a>
+<a id="orgc4d5323"></a>
 
 # Buffer
 
 Buffer is a module that allows the handling of streams that contain only binary data.
 
 
-<a id="orgaf2b8f2"></a>
+<a id="org9d8d45d"></a>
 
 # Domain
 
@@ -130,7 +130,7 @@ The domain module intercepts errors that remain unhandled. Two methods are used 
 2.  **External Binding**: Error emitter is explicitly added to a domain via its add method
 
 
-<a id="org257679e"></a>
+<a id="org999cba8"></a>
 
 # DNS
 
@@ -139,14 +139,14 @@ DNS module is used to connect to a DNS server and perform name resolution by usi
 DNS module is also used for performing name resolution without a network communication by using the lookup() method:
 
 
-<a id="orgb0516f1"></a>
+<a id="org38debcd"></a>
 
 # Debugger
 
 Node.js includes a debugging utility that can be accessed by a built-in debugging client. Node.js debugger is not feature-packed but supports the simple inspection of code. The debugger can be used in the terminal by using the &rsquo;inspect&rsquo; keyword before the name of the JavaScript file.
 
 
-<a id="orgfd02639"></a>
+<a id="org2ccbb18"></a>
 
 # Node.js Express Framework
 
@@ -160,12 +160,12 @@ Now look at some of the core features of the Express framework:
 -   Allows dynamic rendering of HTML Pages based on passing arguments to templates
 
 
-<a id="orgcc56fcc"></a>
+<a id="org65a5726"></a>
 
 # Project Modules & Services
 
 
-<a id="orga8d48e0"></a>
+<a id="orga1d1537"></a>
 
 ## Modules used:
 
@@ -210,12 +210,12 @@ Now look at some of the core features of the Express framework:
 -   deno
 
 
-<a id="orge3c2430"></a>
+<a id="orgef54006"></a>
 
 ## Services used:
 
 
-<a id="orge8f1a5d"></a>
+<a id="org9718bcb"></a>
 
 # Useful Resources & Links
 
@@ -301,11 +301,11 @@ Now look at some of the core features of the Express framework:
 
 -   [Deploying SPAs (like our React App)](https://medium.com/@baphemot/understanding-react-deployment-5a717d4378fd)
 
--   <https://mochajs.org/>[Mocha]
+-   [Mocha](https://mochajs.org/)
 
--   <https://www.chaijs.com/>[Chai]
+-   [Chai](https://www.chaijs.com/)
 
--   <https://sinonjs.org/>[Sinon]
+-   [Sinon](https://sinonjs.org/)
 
 -   [Official npm Docs](https://docs.npmjs.com/)
 
