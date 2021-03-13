@@ -1,0 +1,320 @@
+#+TITLE:     React - The Complete Guide
+#+AUTHOR:    Martim Lima
+#+EMAIL:     (concat "martim.d.lima" at-sign "protonmail.com")
+#+DATE:      10-10-2020
+#+LANGUAGE:  en
+#+OPTIONS:   H:4 num:nil toc:2
+#+PROPERTY: header-args :dir ~/Documents/org/temp
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+-----
+
+Node.js is an extremely powerful JavaScript-based platform used to develop online chat applications, video streaming sites, single-page applications, and many other I/O-intensive web applications and web apps. Built on the JavaScript V8 Engine of Google Chrome, It is used by large, established companies and newly-minted startups alike (Netflix, Paypal, NASA, and Walmart, to name a few).
+
+Node.js is open-source and completely free, used by thousands of developers around the world. It brings plenty of advantages to the table, making it a better choice than other server-side platforms like Java or PHP.
+
+* What is Node.js?
+  :PROPERTIES:
+  :CATEGORY: What is Node.js?
+  :END:
+
+  Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser.
+
+
+* Why Node.js?
+ :PROPERTIES:
+ :CATEGORY: Why Node.js?
+ :END:
+
+Node.js has become the de facto tool for developing server-side and network applications. Here is why:
+
+1. *Node.js is really fast*: Having been built on Google Chrome's V8 JavaScript engine, its library is extremely fast for code execution.
+2. *Node Package Manager (NPM)*: Node Package Manager has more than 50,000 bundles, so whatever functionality is required for an application can be easily imported from NPM.
+3. *Node.js uses asynchronous programming*: All APIs of Node.js library are asynchronous (i.e., non-blocking), so a Node.js-based server does not wait for the API to return data. The server calls the API, and in the event that no data is returned, the server moves to the next API the Events module of Node.js helps the server get a response from the previous API call. This also helps with the speed of Node.js.
+4. *No buffering*: Node.js dramatically reduces the processing time while uploading audio and video files. Node.js applications never buffer data and simply output the data in chunks.
+5. *Single-threaded*: Node.js makes use of a single-threaded model with event looping. As a result, it can provide service to a much larger number of requests than traditional servers like Apache HTTP Server.
+6. *Highly scalable*: Node.js server responds in a non-blocking way, making it highly scalable in contrast with traditional servers, which create limited threads to handle requests.
+
+
+* Parts of Node.js
+    :PROPERTIES:
+    :CATEGORY: Parts of Node.js
+    :END:
+
+#+CAPTION: Parts of Node.js
+#+ATTR_HTML: :alt components :title parts of node.js :align center
+#+ATTR_HTML: :width 50% :height 50%
+#+NAME:   fig:parts of node.js
+[[./resources/imgs/parts-of-nodejs.png]]
+
+
+* Modules
+    :PROPERTIES:
+    :CATEGORY: Modules
+    :END:
+
+Modules are like JavaScript libraries that can be used in a Node.js application to include a set of functions. In order to include a module in a Node.js application, use the require() function with the parenthesis containing the name of the module.
+
+Node.js has many modules that provide the basic functionality needed for a web application. Some of them are mentioned in this table:
+#+CAPTION: Node.js Modules Table
+#+ATTR_HTML: :alt components :title node.js modules table :align center
+#+ATTR_HTML: :width 50% :height 50%
+#+NAME:   fig:node.js modules table
+[[./resources/imgs/nodejs-module-table.png]]
+
+
+* Console
+    :PROPERTIES:
+    :CATEGORY: Console
+    :END:
+
+The console is a module that provides a method for debugging that is similar to the basic JavaScript console provided by internet browsers. It prints messages to stdout and stderr.
+
+* Cluster
+    :PROPERTIES:
+    :CATEGORY: Cluster
+    :END:
+
+Node.js is built-on on the concept of single-threaded programming. Cluster is a module that allows multi-threading by creating child processes that share the same server port and run simultaneously.
+
+A cluster can be added to an application in the following way:
+#+CAPTION: Add a cluster in Node.js
+#+ATTR_HTML: :alt components :title add a cluster in nodejs :align center
+#+ATTR_HTML: :width 50% :height 50%
+#+NAME:   fig:add a cluster in nodejs
+[[./resources/imgs/cluster-in-nodejs.png]]
+
+
+* Global
+    :PROPERTIES:
+    :CATEGORY: Global
+    :END:
+
+Global objects in Node.js are available in all modules. These objects are functions, modules, strings, etc. Some Node.js global objects are mentioned in the table below:
+#+CAPTION: Global objects table
+#+ATTR_HTML: :alt components :title global objects table in nodejs :align center
+#+ATTR_HTML: :width 50% :height 50%
+#+NAME:   fig:gloval objects table in nodejs
+[[./resources/imgs/global-objects-table.png]]
+
+
+* Error Handling
+    :PROPERTIES:
+    :CATEGORY: Error Handling
+    :END:
+
+Node.js applications experience four types of errors.
+#+CAPTION: Node.js Errors
+#+ATTR_HTML: :alt components :title nodejs errors :align center
+#+ATTR_HTML: :width 50% :height 50%
+#+NAME:   fig:nodejs errors
+[[./resources/imgs/nodejs-errors.png]]
+
+Errors in Node.js are handled through exceptions. For example, let's handle the error that would occur when we divide a number by zero. This error would crash the Node.js application, so we should handle this error to continue with the normal execution of the application.
+
+* Streaming
+    :PROPERTIES:
+    :CATEGORY: Streaming
+    :END:
+
+Streams are the objects that let you read data or write data continuously. There are four types of streams:
+1. *Readable*: These are the types of streams from which data can be read
+2. *Writable*: These are the types of streams to which data can be written
+3. *Duplex*: These are both readable and writable streams
+4. *Transform*: Streams that can manipulate the data while it is being read or written
+
+
+* Buffer
+    :PROPERTIES:
+    :CATEGORY: Buffer
+    :END:
+
+Buffer is a module that allows the handling of streams that contain only binary data.
+
+* Domain
+    :PROPERTIES:
+    :CATEGORY: Domain
+    :END:
+
+The domain module intercepts errors that remain unhandled. Two methods are used for intercepting these errors:
+
+1. *Internal Binding*: Error emitter executes its code inside the run method
+2. *External Binding*: Error emitter is explicitly added to a domain via its add method
+
+* DNS
+    :PROPERTIES:
+    :CATEGORY: DNS
+    :END:
+DNS module is used to connect to a DNS server and perform name resolution by using the resolve() method.
+
+DNS module is also used for performing name resolution without a network communication by using the lookup() method:
+
+* Debugger
+    :PROPERTIES:
+    :CATEGORY: Debugger
+    :END:
+
+Node.js includes a debugging utility that can be accessed by a built-in debugging client. Node.js debugger is not feature-packed but supports the simple inspection of code. The debugger can be used in the terminal by using the 'inspect' keyword before the name of the JavaScript file.
+
+
+* Node.js Express Framework
+    :PROPERTIES:
+    :CATEGORY: Node.js Express Framework
+    :END:
+
+Express is a flexible Node.js web application framework that provides a wide set of features to develop both web and mobile applications. It's a layer built on the top of the Node.js that helps manage a server and routes.
+
+Now look at some of the core features of the Express framework:
++ Used for designing single-page, multi-page, and hybrid web applications
++ Allows developers to set up middlewares for responding to HTTP Requests
++ Defines a routing table that is used to perform different actions based on the HTTP method and URL
++ Allows dynamic rendering of HTML Pages based on passing arguments to templates
+
+
+* Project Modules & Services
+    :PROPERTIES:
+    :CATEGORY: Project Modules & Services
+    :END:
+
+** Modules used:
++ Node.js,
++ Javascript,
++ Typescript,
++ HTML,
++ CSS,
++ Express.js,
++ Nodemon,
++ SQL,
++ MariaDB,
++ MariaDb/Node.Js Connector,
++ Pug,
++ Express-Handlebars,
++ Ejs,
++ Sequelize,
++ NoSQL,
++ MongoDB,
++ Mongoose,
++ express-session,
++ connect-mongodb-session,
++ bcryptjs,
++ csurf,
++ connect-flash,
++ nodemailer,
++ express-validator,
++ multer,
++ pdfkit,
++ stripe,
++ jsonwebtoken,
++ socket.io,
++ socket.io-client,
++ graphql,
++ express-graphql,
++ helmet,
++ compression,
++ morgan,
++ mocha,
++ chai,
++ sinon,
++ deno
+
+** Services used:
+
+
+* Useful Resources & Links
+    :PROPERTIES:
+    :CATEGORY: Useful Resources & Links
+    :END:
+
++ [[https://developer.mozilla.org/en-US/docs/Learn/JavaScript][MDN JavaScript Tutorial]]
+
++ [[https://academind.com/learn/javascript][Academind JS Resources]]
+
++ [[https://nodejs.org/en/docs/guides/][Official Node.js Docs]]
+
++ [[https://nodejs.org/dist/latest/docs/api/][Full Node.js Reference (for all core modules)]]
+
++ [[https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/][More about the Node.js Event Loop]]
+
++ [[https://nodejs.org/en/docs/guides/dont-block-the-event-loop/][Blocking and Non-Blocking Code]]
+
++ [[https://nodejs.org/en/docs/guides/debugging-getting-started/][More on debugging Node.js]]
+
++ [[https://code.visualstudio.com/docs/nodejs/nodejs-debugging][Debugging Node in Visual Studio Code]]
+
++ [[https://expressjs.com/en/starter/installing.html][https://www.npmjs.com/package/express-ws]]
+
++ [[https://pugjs.org/api/getting-started.html][Pug Docs]]
+
++ [[https://handlebarsjs.com/][Handlebars Docs]]
+
++ [[http://ejs.co/#docs][EJS Docs]]
+
++ [[https://developer.mozilla.org/en-US/docs/Glossary/MVC][More on MVC]]
+
++ [[https://expressjs.com/en/guide/routing.html][Official Routing Docs]]
+
++ [[https://www.w3schools.com/sql/][Learn more about MySQL/ SQL in General]]
+
++ [[https://github.com/sidorares/node-mysql2][Learn more about the Node MySQL Package]]
+
++ [[http://docs.sequelizejs.com/][Sequelize Official Docs]]
+
++ [[https://mongoosejs.com/docs/][Mongoose Official Docs]]
+
++ [[https://www.quora.com/What-is-a-session-in-a-Web-Application][More on Sessions]]
+
++ [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies][More on Cookies]]
+
++ [[https://github.com/expressjs/session][Express-session Official Docs]]
+
++ [[https://github.com/dcodeIO/bcrypt.js][Bcrypt Official Docs]]
+
++ [[https://www.acunetix.com/websitesecurity/csrf-attacks/][More on CSRF Attacks]]
+
++ [[https://nodemailer.com/about/][Nodemailer Official Docs]]
+
++ [[https://sendgrid.com/docs/][SendGrid Official Docs]]
+
++ [[https://express-validator.github.io/docs/][Express-Validator Docs]]
+
++ [[https://github.com/chriso/validator.js][Validator.js (which is used behind the scenes) Docs]]
+
++ [[https://expressjs.com/en/guide/error-handling.html][Error Handling in Express.js - Official Docs]]
+
++ [[https://github.com/expressjs/multer][Multer Official Docs]]
+
++ [[https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93][Streaming Files]]
+
++ [[http://pdfkit.org/docs/getting_started.html][Generating PDFs with PDFKit]]
+
++ [[https://developers.google.com/web/updates/2015/03/introduction-to-fetch][More on the fetch API]]
+
++ [[https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started][More on AJAX Requests]]
+
++ [[https://stripe.com/docs][Official Stripe.js Docs]]
+
++ [[https://academind.com/learn/node-js/building-a-restful-api-with/][Example: Build a Complete RESTful API from Scratch]]
+
++ [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function][Async-await - More Details]]
+
++ [[https://socket.io/get-started/chat/][Socket.io Official Docs]]
+
++ [[https://www.npmjs.com/package/express-ws][Alternative Websocket Library]]
+
++ [[https://graphql.org][Detailed Guide on GraphQ]]
+
++ [[https://devcenter.heroku.com/categories/reference][Herokus Docs]]
+
++ [[https://medium.com/@baphemot/understanding-react-deployment-5a717d4378fd][Deploying SPAs (like our React App)]]
+
++ [[https://mochajs.org/]][Mocha]
+
++ [[https://www.chaijs.com/]][Chai]
+
++ [[https://sinonjs.org/]][Sinon]
+
++ [[https://docs.npmjs.com/][Official npm Docs]]
+
++ [[https://academind.com/learn/webpack][Learn more about Webpack (a build tool using Node.js)]]
+
++ [[https://nodejs.org/dist/latest-v14.x/docs/api/esm.html][More on Node & ES Modules]]
