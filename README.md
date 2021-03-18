@@ -1,21 +1,25 @@
-- [What is Node.js?](#org0723337)
-- [Why Node.js?](#orgc888be2)
-- [Parts of Node.js](#orgffe6619)
-- [Modules](#orgdb6f7d9)
-- [Console](#org7e897cf)
-- [Cluster](#org32f507f)
-- [Global](#org6accabd)
-- [Error Handling](#orgc5a825a)
-- [Streaming](#orge02e74f)
-- [Buffer](#orgc4d5323)
-- [Domain](#org9d8d45d)
-- [DNS](#org999cba8)
-- [Debugger](#org38debcd)
-- [Node.js Express Framework](#org2ccbb18)
-- [Project Modules & Services](#org65a5726)
-  - [Modules used:](#orga1d1537)
-  - [Services used:](#orgef54006)
-- [Useful Resources & Links](#org9718bcb)
+
+# Table of Contents
+
+-   [What is Node.js?](#org910838e)
+-   [Why Node.js?](#org8f626f9)
+-   [Parts of Node.js](#orgc8a6fd4)
+-   [Modules](#org80f3437)
+-   [Console](#orgfca69dd)
+-   [Cluster](#org2e5c68b)
+-   [Global](#orge429066)
+-   [Error Handling](#org15e6f51)
+-   [Streaming](#orgd7f79db)
+-   [Buffer](#orge2963f7)
+-   [Domain](#org510aa28)
+-   [DNS](#org65e9c17)
+-   [Debugger](#orga55b269)
+-   [Node.js Express Framework](#org089c4ef)
+-   [Project Modules & Services](#org433e146)
+    -   [Modules used:](#orgb0ed87c)
+    -   [Services used:](#org8bf29a8)
+-   [Course Project](#orge7b8c08)
+-   [Useful Resources & Links](#orgad88ffd)
 
 ---
 
@@ -24,14 +28,14 @@ Node.js is an extremely powerful JavaScript-based platform used to develop onlin
 Node.js is open-source and completely free, used by thousands of developers around the world. It brings plenty of advantages to the table, making it a better choice than other server-side platforms like Java or PHP.
 
 
-<a id="org0723337"></a>
+<a id="org910838e"></a>
 
 # What is Node.js?
 
 Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client&rsquo;s browser.
 
 
-<a id="orgc888be2"></a>
+<a id="org8f626f9"></a>
 
 # Why Node.js?
 
@@ -45,14 +49,14 @@ Node.js has become the de facto tool for developing server-side and network appl
 6.  **Highly scalable**: Node.js server responds in a non-blocking way, making it highly scalable in contrast with traditional servers, which create limited threads to handle requests.
 
 
-<a id="orgffe6619"></a>
+<a id="orgc8a6fd4"></a>
 
 # Parts of Node.js
 
 ![img](./resources/imgs/parts-of-nodejs.png "Parts of Node.js")
 
 
-<a id="orgdb6f7d9"></a>
+<a id="org80f3437"></a>
 
 # Modules
 
@@ -63,14 +67,14 @@ Node.js has many modules that provide the basic functionality needed for a web a
 ![img](./resources/imgs/nodejs-module-table.png "Node.js Modules Table")
 
 
-<a id="org7e897cf"></a>
+<a id="orgfca69dd"></a>
 
 # Console
 
 The console is a module that provides a method for debugging that is similar to the basic JavaScript console provided by internet browsers. It prints messages to stdout and stderr.
 
 
-<a id="org32f507f"></a>
+<a id="org2e5c68b"></a>
 
 # Cluster
 
@@ -81,7 +85,7 @@ A cluster can be added to an application in the following way:
 ![img](./resources/imgs/cluster-in-nodejs.png "Add a cluster in Node.js")
 
 
-<a id="org6accabd"></a>
+<a id="orge429066"></a>
 
 # Global
 
@@ -90,7 +94,7 @@ Global objects in Node.js are available in all modules. These objects are functi
 ![img](./resources/imgs/global-objects-table.png "Global objects table")
 
 
-<a id="orgc5a825a"></a>
+<a id="org15e6f51"></a>
 
 # Error Handling
 
@@ -101,7 +105,7 @@ Node.js applications experience four types of errors.
 Errors in Node.js are handled through exceptions. For example, let&rsquo;s handle the error that would occur when we divide a number by zero. This error would crash the Node.js application, so we should handle this error to continue with the normal execution of the application.
 
 
-<a id="orge02e74f"></a>
+<a id="orgd7f79db"></a>
 
 # Streaming
 
@@ -113,14 +117,14 @@ Streams are the objects that let you read data or write data continuously. There
 4.  **Transform**: Streams that can manipulate the data while it is being read or written
 
 
-<a id="orgc4d5323"></a>
+<a id="orge2963f7"></a>
 
 # Buffer
 
 Buffer is a module that allows the handling of streams that contain only binary data.
 
 
-<a id="org9d8d45d"></a>
+<a id="org510aa28"></a>
 
 # Domain
 
@@ -130,7 +134,7 @@ The domain module intercepts errors that remain unhandled. Two methods are used 
 2.  **External Binding**: Error emitter is explicitly added to a domain via its add method
 
 
-<a id="org999cba8"></a>
+<a id="org65e9c17"></a>
 
 # DNS
 
@@ -139,14 +143,14 @@ DNS module is used to connect to a DNS server and perform name resolution by usi
 DNS module is also used for performing name resolution without a network communication by using the lookup() method:
 
 
-<a id="org38debcd"></a>
+<a id="orga55b269"></a>
 
 # Debugger
 
 Node.js includes a debugging utility that can be accessed by a built-in debugging client. Node.js debugger is not feature-packed but supports the simple inspection of code. The debugger can be used in the terminal by using the &rsquo;inspect&rsquo; keyword before the name of the JavaScript file.
 
 
-<a id="org2ccbb18"></a>
+<a id="org089c4ef"></a>
 
 # Node.js Express Framework
 
@@ -160,12 +164,12 @@ Now look at some of the core features of the Express framework:
 -   Allows dynamic rendering of HTML Pages based on passing arguments to templates
 
 
-<a id="org65a5726"></a>
+<a id="org433e146"></a>
 
 # Project Modules & Services
 
 
-<a id="orga1d1537"></a>
+<a id="orgb0ed87c"></a>
 
 ## Modules used:
 
@@ -210,12 +214,21 @@ Now look at some of the core features of the Express framework:
 -   deno
 
 
-<a id="orgef54006"></a>
+<a id="org8bf29a8"></a>
 
 ## Services used:
 
 
-<a id="org9718bcb"></a>
+<a id="orge7b8c08"></a>
+
+# Course Project
+
+![img](./resources/imgs/node-course-project.gif "Node.Js Course Project")
+
+[Products Shop](https://node-complete-guide-2020.herokuapp.com/)
+
+
+<a id="orgad88ffd"></a>
 
 # Useful Resources & Links
 
@@ -312,3 +325,4 @@ Now look at some of the core features of the Express framework:
 -   [Learn more about Webpack (a build tool using Node.js)](https://academind.com/learn/webpack)
 
 -   [More on Node & ES Modules](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html)
+

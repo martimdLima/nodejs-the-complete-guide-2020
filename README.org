@@ -1,9 +1,9 @@
 #+TITLE:     React - The Complete Guide
 #+AUTHOR:    Martim Lima
-#+EMAIL:     (concat "martim.d.lima" at-sign "protonmail.com")
+#+EMAIL:     martim.d.lima@protonmail.com
 #+DATE:      10-10-2020
 #+LANGUAGE:  en
-#+OPTIONS:   H:4 num:nil toc:2
+#+OPTIONS:   H:4 num:nil toc:2 email:t
 #+PROPERTY: header-args :dir ~/Documents/org/temp
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
@@ -219,6 +219,15 @@ Now look at some of the core features of the Express framework:
 
 ** Services used:
 
+* Course Project
+
+#+CAPTION: Node.Js Course Project
+#+ATTR_HTML: :alt mern stack :title Node.js Course Project :align center
+#+ATTR_HTML: :width 100% :height 100%
+#+NAME:   fig:nodejs-course-project
+[[./resources/imgs/node-course-project.gif]]
+
+[[https://node-complete-guide-2020.herokuapp.com/][Products Shop]]
 
 * Useful Resources & Links
     :PROPERTIES:
